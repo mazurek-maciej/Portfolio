@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="490px" viewBox="0 0 800 490" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Laptop</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="42.631603%" y1="24.3742484%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#C0C0C0" offset="0%"></stop>
+            <stop stop-color="#BBBABA" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="-180.371895%" x2="50%" y2="99.0381142%" id="linearGradient-2">
+            <stop stop-color="#CACACA" offset="0%"></stop>
+            <stop stop-color="#BBBABA" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="58.861812%" y1="146.441661%" x2="52.4257226%" y2="-108.90004%" id="linearGradient-3">
+            <stop stop-color="#E4E4E4" offset="0%"></stop>
+            <stop stop-color="#EEEEEE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="34.3677086%" y1="-11.163931%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#3F3F3F" offset="0%"></stop>
+            <stop stop-color="#3B3B3B" offset="49.1999355%"></stop>
+            <stop stop-color="#363636" offset="78.3755395%"></stop>
+            <stop stop-color="#313131" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Laptop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M27.5,437.5 L773.5,437.5 L773.5,26 C773.5,23.5147186 771.485281,21.5 769,21.5 L32,21.5 C29.5147186,21.5 27.5,23.5147186 27.5,26 L27.5,437.5 Z" id="Rectangle" stroke="#979797" fill="url(#linearGradient-1)" fill-rule="nonzero"></path>
+        <path d="M10.5,437.5 L10.5,465 C10.5,467.485281 12.5147186,469.5 15,469.5 L785,469.5 C787.485281,469.5 789.5,467.485281 789.5,465 L789.5,437.5 L10.5,437.5 Z" id="Rectangle" stroke="#979797" fill="url(#linearGradient-2)" fill-rule="nonzero"></path>
+        <path d="M317.5,437.5 L317.5,444 C317.5,449.246705 321.753295,453.5 327,453.5 L473,453.5 C478.246705,453.5 482.5,449.246705 482.5,444 L482.5,437.5 L317.5,437.5 Z" id="Rectangle" stroke="#979797" fill="url(#linearGradient-3)" fill-rule="nonzero"></path>
+        <rect id="Rectangle" stroke="#515151" fill="url(#linearGradient-4)" fill-rule="nonzero" x="43.5" y="37.5" width="713" height="382" rx="3"></rect>
+    </g>
+</svg>
