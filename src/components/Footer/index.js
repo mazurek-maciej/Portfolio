@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import mLogo from '../../images/M_logo.svg';
+import {Link} from 'react-scroll';
 import maciekLogo from '../../images/maciek_logo.svg';
 
 const StyledFooter = styled.footer`
@@ -39,6 +39,9 @@ const RightContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  a {
+    color: ${({theme}) => theme.colors.$f};
+  }
 `;
 const BottomContainer = styled.div`
   flex: 2;
@@ -60,14 +63,14 @@ const Footer = () => {
           <MLogo src={maciekLogo} />
         </LeftContainer>
         <CenterContainer>
-          <a>Home</a>
-          <a>About</a>
-          <a>Projects</a>
+          <Link to="main">Home</Link>
+          <Link to="about">About</Link>
+          <Link to="projects">Projects</Link>
         </CenterContainer>
         <RightContainer>
-          <a>LinkedIn</a>
-          <a>Github</a>
-          <a>Mail</a>
+          <a href="www.linkedin.com/in/maciej-mazurek-087a6011a">LinkedIn</a>
+          <a href="https://github.com/mazurek-maciej">Github</a>
+          <a href="mailto: maciej.mazurek.prv@gmail.com">Mail</a>
         </RightContainer>
       </LinksWraper>
       <BottomContainer>maciej.mazurek.prv@gmail.com</BottomContainer>

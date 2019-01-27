@@ -1,13 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
-import { ThemeProvider, createGlobalStyle, keyframes } from 'styled-components';
-import { theme } from '../../utils/theme'
-import Header from '../Header'
-import Footer from '../Footer'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
+import {ThemeProvider, createGlobalStyle, keyframes} from 'styled-components';
+import {theme} from '../../utils/theme';
+import Header from '../Header';
+import Footer from '../Footer';
 import './index.sass';
-
 
 const anim = keyframes`
   0% {
@@ -35,25 +34,26 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({children}) => (
   <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyle/>
-        <Helmet
-          title='Maciej Mazurek Portfolio'
+    <>
+      <GlobalStyle />
+      <Helmet title="Maciej Mazurek Portfolio">
+        <link
+          href="https://fonts.googleapis.com/css?family=Montserrat"
+          rel="stylesheet"
         />
-        <Header/>
-        {children}
+      </Helmet>
+      <Header />
+      {children}
 
-        <Footer>
-
-        </Footer>
-      </>
+      <Footer />
+    </>
   </ThemeProvider>
-)
+);
 
 // TemplateWrapper.propTypes = {
 //   children: PropTypes.func
 // }
 
-export default TemplateWrapper
+export default TemplateWrapper;

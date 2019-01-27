@@ -10,6 +10,9 @@ const Description = styled.p`
   ${media.phone`
     font-size: .8rem;
   `}
+  a {
+    color: hsl(203, 80%, 70%);
+  }
 `;
 
 export default Description;

@@ -76,11 +76,6 @@ const Main = ({laptopImage}) => (
     <Bg>
       <Image fluid={laptopImage.fluid} />
     </Bg>
-    <P bottom>
-      <Link to="about" spy={true} smooth={true} duration={500}>
-        ▽
-      </Link>
-    </P>
   </MainWraper>
 );
 export default Main;
