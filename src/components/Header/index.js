@@ -85,7 +85,9 @@ const Header = () => {
             <MenuLink to="footer" spy={true} smooth={true} duration={500}>
               Contact
             </MenuLink>
-            <MenuButton />
+            <MenuButton>
+              <MenuIcon />
+            </MenuButton>
           </RightWraper>
         </LeftAndRightWraper>
       </CenterWraper>
