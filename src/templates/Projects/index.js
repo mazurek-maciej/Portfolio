@@ -17,6 +17,7 @@ const MainContentWraper = styled.div`
   width: 100%;
   margin: 0 auto;
   ${media.phone`
+    height: 100vh;
   `}
   h2 {
     align-self: flex-start;

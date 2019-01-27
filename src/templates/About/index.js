@@ -86,7 +86,7 @@ const TechWraper = styled.div`
   `};
   ${media.phone`
     margin-top: 1rem;
-    height: 280px;
+    height: 250px;
     padding-top: 32px;
     padding-bottom: 0;
     max-width: 300px;
