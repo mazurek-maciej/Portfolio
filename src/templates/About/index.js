@@ -46,7 +46,7 @@ const AboutWraper = styled.div`
 `;
 const Container = styled.div`
   margin: 0 auto;
-  max-width: 640px;
+  max-width: 500px;
   width: 100%;
   ${media.tablet`
     display: flex;
