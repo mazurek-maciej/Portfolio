@@ -65,8 +65,8 @@ const TextWraper = styled.div`
 `;
 const TechWraper = styled.div`
   position: relative;
-  max-width: 600px;
-  height: 520px;
+  max-width: 500px;
+  height: 420px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -79,17 +79,17 @@ const TechWraper = styled.div`
   margin-top: 2rem;
   ${media.tablet`
     margin-top: 1rem;
-    height: 360px;
+    height: 250px;
     padding-top: 32px;
     padding-bottom: 0;
-    max-width: 400px;
+    max-width: 260px;
   `};
   ${media.phone`
     margin-top: 1rem;
     height: 250px;
     padding-top: 32px;
     padding-bottom: 0;
-    max-width: 300px;
+    max-width: 260px;
   `};
 `;
 const Text = styled(PosedText)`
@@ -167,10 +167,10 @@ class About extends Component {
             Motivation to work and full commitment they are my driving force in
             developing
           </P>
-
           <Subheading technologies underline>
             Technologies
           </Subheading>
+          <P>Prime technologies that I'am mostly focused on</P>
         </TextWraper>
         <Container>
           <TechWraper>

@@ -63,9 +63,15 @@ const Footer = () => {
           <MLogo src={maciekLogo} />
         </LeftContainer>
         <CenterContainer>
-          <Link to="main">Home</Link>
-          <Link to="about">About</Link>
-          <Link to="projects">Projects</Link>
+          <Link to="main" spy={true} smooth={true} duration={500}>
+            Home
+          </Link>
+          <Link to="about" spy={true} smooth={true} duration={500}>
+            About
+          </Link>
+          <Link to="projects" spy={true} smooth={true} duration={500}>
+            Projects
+          </Link>
         </CenterContainer>
         <RightContainer>
           <a href="www.linkedin.com/in/maciej-mazurek-087a6011a">LinkedIn</a>

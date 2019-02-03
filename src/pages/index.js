@@ -7,7 +7,6 @@ import Projects from '../templates/Projects';
 
 export default ({data}) => (
   <Layout>
-    {console.log(data.sc)}
     <Main laptopImage={data.bg} />
     <About />
     <Projects nutrikonImg={data.nutrikon} tastyImg={data.tasty} />

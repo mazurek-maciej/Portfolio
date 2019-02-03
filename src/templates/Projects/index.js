@@ -96,14 +96,18 @@ const Projects = ({nutrikonImg, tastyImg}) => (
         <Description projects>
           <a href="http://nutrikon.pl/">Link</a>
         </Description>
+        <Description desc>Website created on Nutrikon order</Description>
       </LeftContainer>
       <RightContainer>
         <ImgContainer fluid={tastyImg.fluid} tasty />
         <Subheading projects>
-          <span>Tasty - projekt</span>
+          <span>Tasty PO</span>
         </Subheading>
         <Description projects>
           <a href="https://cranky-raman-166572.netlify.com/">Link</a>
+        </Description>
+        <Description desc>
+          Appliaction created as part of the student project
         </Description>
       </RightContainer>
     </ProjectsWraper>

@@ -1,12 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
+import posed from 'react-pose';
+import MobileNavigation from '../MobileNavigation';
 import {Link} from 'react-scroll';
-import {Menu} from 'styled-icons/feather/Menu';
+import {Menu, X} from 'styled-icons/feather';
 import {media} from '../../utils/media';
 import maciekLogo from '../../images/maciek_logo.svg';
 
+const PosedMenuIcon = posed(Menu)({
+  visible: {
+    opacity: 1,
+  },
+  hidden: {
+    opacity: 0,
+  },
+});
+const PosedMenuIconCollapsed = posed(X)({
+  visible: {
+    scale: 1,
+  },
+  hidden: {
+    scale: 0,
+  },
+});
+
+const Wraper = styled.div`
+  position: fixed;
+  z-index: 1;
+`;
 const StyledHeader = styled.nav`
+  position: relative;
   display: flex;
+  z-index: 1;
   justify-content: center;
   width: 100vw;
   height: 56px;
@@ -51,7 +76,17 @@ const MenuButton = styled.a`
   display: block;
   `}
 `;
-const MenuIcon = styled(Menu)`
+const MenuIcon = styled(PosedMenuIcon)`
+  display: ${props => (props.active ? 'none' : 'block')};
+  color: ${({theme}) => theme.colors.$f};
+  width: 32px;
+  margin-right: 16px;
+  :active {
+    color: hsl(203, 80%, 70%);
+  }
+`;
+const MenuIconCollapsed = styled(PosedMenuIconCollapsed)`
+  display: ${props => (props.active ? 'block' : 'none')};
   color: ${({theme}) => theme.colors.$f};
   width: 32px;
   margin-right: 16px;
@@ -64,35 +99,62 @@ const MLogo = styled.img`
   margin-left: 1rem;
 `;
 
-const Header = () => {
-  return (
-    <StyledHeader>
-      <CenterWraper>
-        <LeftAndRightWraper>
-          <LeftWraper>
-            <MLogo src={maciekLogo} />
-          </LeftWraper>
-          <RightWraper>
-            <MenuLink to="main" spy={true} smooth={true} duration={500}>
-              Home
-            </MenuLink>
-            <MenuLink to="about" spy={true} smooth={true} duration={500}>
-              About
-            </MenuLink>
-            <MenuLink to="projects" spy={true} smooth={true} duration={500}>
-              Projects
-            </MenuLink>
-            <MenuLink to="footer" spy={true} smooth={true} duration={500}>
-              Contact
-            </MenuLink>
-            <MenuButton>
-              <MenuIcon />
-            </MenuButton>
-          </RightWraper>
-        </LeftAndRightWraper>
-      </CenterWraper>
-    </StyledHeader>
-  );
-};
+class Header extends React.Component {
+  state = {
+    active: false,
+  };
+  componentDidMount() {}
+  handleClick = () => {
+    if (this.state.active === true) {
+      this.setState({active: false});
+    }
+  };
+  displayMobileNav = () => {
+    this.setState(prevState => ({
+      active: !prevState.active,
+    }));
+  };
+  render() {
+    const {active} = this.state;
+    return (
+      <Wraper>
+        <StyledHeader>
+          <CenterWraper>
+            <LeftAndRightWraper>
+              <LeftWraper>
+                <MLogo src={maciekLogo} />
+              </LeftWraper>
+              <RightWraper>
+                <MenuLink to="main" spy={true} smooth={true} duration={500}>
+                  Home
+                </MenuLink>
+                <MenuLink to="about" spy={true} smooth={true} duration={500}>
+                  About
+                </MenuLink>
+                <MenuLink to="projects" spy={true} smooth={true} duration={500}>
+                  Projects
+                </MenuLink>
+                <MenuLink to="footer" spy={true} smooth={true} duration={500}>
+                  Contact
+                </MenuLink>
+                <MenuButton onClick={this.displayMobileNav}>
+                  <MenuIcon
+                    active={active}
+                    pose={active ? 'hidden' : 'visible'}
+                  />
+                  <MenuIconCollapsed
+                    active={active}
+                    pose={active ? 'visible' : 'hidden'}
+                  />
+                </MenuButton>
+              </RightWraper>
+            </LeftAndRightWraper>
+          </CenterWraper>
+        </StyledHeader>
+        <MobileNavigation active={active} handleClick={this.handleClick} />
+      </Wraper>
+    );
+  }
+}
 
 export default Header;
