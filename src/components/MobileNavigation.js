@@ -6,10 +6,16 @@ import {media} from '../utils/media';
 
 const PosedNav = posed.div({
   visible: {
-    right: 0,
+    x: '0%',
+    transition: {
+      x: {ease: 'easeOut', duration: 300},
+    },
   },
   hidden: {
-    right: -100,
+    x: '100%',
+    transition: {
+      x: {ease: 'easeIn', duration: 200},
+    },
   },
 });
 
@@ -18,10 +24,10 @@ const Wraper = styled(PosedNav)`
   z-index: 1;
   right: 0;
   height: 100vh;
-  display: ${props => (props.active ? 'flex' : 'none')};
+  display: flex;
   flex-direction: column;
   background-color: ${({theme}) => theme.colors.$primary};
-  box-shadow: -6px 5px 15px 0 hsla(0, 0%, 0%, 0.2);
+  box-shadow: -6px 10px 15px 0 hsla(0, 0%, 0%, 0.2);
 `;
 const BackgroundBlur = styled.div`
   width: 100vw;

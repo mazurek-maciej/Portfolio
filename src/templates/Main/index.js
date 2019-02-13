@@ -55,6 +55,7 @@ const RegulationDiv = styled.div`
 const Image = styled(Img)`
   width: 800px;
   height: 800px;
+
   ${media.tablet`
     width: 560px;
     height: 560px;

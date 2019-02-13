@@ -12,12 +12,13 @@ const MainContentWraper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 90vh;
+  height: 100%;
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
+  position: relative;
   ${media.phone`
-    height: 100vh;
+    height: 100%;
   `}
   h2 {
     align-self: flex-start;
@@ -33,26 +34,10 @@ const ProjectsWraper = styled.div`
   margin-top: 16px;
   ${media.phone`
     height: 100vh;
+    justify-content: center;
   `}
 `;
-const LeftContainer = styled.div`
-  flex: 1;
-  max-width: 380px;
-  width: 100%;
-  align-self: flex-start;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 20px hsla(210, 20%, 20%, 0.6);
-  background-color: ${({theme}) => theme.colors.$primary};
-  transition: all 0.2s;
-  ${media.phone`
-    max-width: 300px;
-    width: 100%;
-  `}
-  :hover {
-    box-shadow: 0 5px 25px hsla(210, 20%, 20%, 0.7);
-  }
-`;
+
 const RightContainer = styled.div`
   flex: 1;
   max-width: 380px;
@@ -60,16 +45,37 @@ const RightContainer = styled.div`
   align-self: flex-end;
   border-radius: 10px;
   margin-bottom: 16px;
-  box-shadow: 0 4px 20px hsla(210, 20%, 20%, 0.6);
   background-color: ${({theme}) => theme.colors.$primary};
+  box-shadow: 0 5px 25px hsla(210, 20%, 20%, 0.4);
   transition: all 0.2s;
+  position: relative;
   ${media.phone`
     max-width: 300px;
     width: 100%;
+    align-self: center;
   `}
-  :hover {
-    box-shadow: 0 5px 25px hsla(210, 20%, 20%, 0.7);
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 8px 35px hsla(210, 20%, 20%, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: -1;
   }
+  :hover::after {
+    opacity: 1;
+  }
+`;
+const LeftContainer = styled(RightContainer)`
+  align-self: flex-start;
+  ${media.phone`
+    align-self: center;
+  `}
 `;
 const ImgContainer = styled(Img)`
   width: 100%;
@@ -89,25 +95,26 @@ const Projects = ({nutrikonImg, tastyImg}) => (
     </Subheading>
     <ProjectsWraper>
       <LeftContainer>
-        <ImgContainer fluid={nutrikonImg.fluid} nutrikon />
+        <a href="http://nutrikon.pl/">
+          <ImgContainer fluid={nutrikonImg.fluid} nutrikon />
+        </a>
         <Subheading projects>
           <span>Nutrikon</span>
         </Subheading>
-        <Description projects>
-          <a href="http://nutrikon.pl/">Link</a>
+        <Description desc>
+          Website created for Nutrikon company created using Gatsby.
         </Description>
-        <Description desc>Website created on Nutrikon order</Description>
       </LeftContainer>
       <RightContainer>
-        <ImgContainer fluid={tastyImg.fluid} tasty />
+        <a href="https://cranky-raman-166572.netlify.com/">
+          <ImgContainer fluid={tastyImg.fluid} tasty />
+        </a>
         <Subheading projects>
           <span>Tasty PO</span>
         </Subheading>
-        <Description projects>
-          <a href="https://cranky-raman-166572.netlify.com/">Link</a>
-        </Description>
         <Description desc>
-          Appliaction created as part of the student project
+          Appliaction created as part of the academic project based on React and
+          Firebase - as store and authentication.
         </Description>
       </RightContainer>
     </ProjectsWraper>

@@ -36,12 +36,12 @@ const AboutWraper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 80vh;
+  height: 100%;
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
   ${media.phone`
-    height: 100vh;
+    height: 100%;
   `}
 `;
 const Container = styled.div`
@@ -155,8 +155,8 @@ class About extends Component {
             Few words about me
           </Subheading>
           <P>
-            Since July 2018 I decide to change my point of interest from Swift
-            lang to become front-end developer.
+            Since July 2018 I'am decide to change my point of interest from
+            Swift lang to become front-end developer.
           </P>
           <P>
             Minimalists aproach to design websites is what I prefere, but I'am
@@ -164,13 +164,21 @@ class About extends Component {
           </P>
           <P>
             Now I’am mostly focused on learning React and improving JavaScript.
-            Motivation to work and full commitment they are my driving force in
-            developing
+            Motivation to work and full commitment are my driving force in
+            developing.
           </P>
           <Subheading technologies underline>
             Technologies
           </Subheading>
-          <P>Prime technologies that I'am mostly focused on</P>
+          <P>
+            Prime technologies that I'am mostly focused on. Besides what is
+            shown below I'am also want to learn testing in Jest.
+          </P>
+          <P>
+            Later on I'am wanted to dive more into: Node.js, Webpack, Express,
+            MongoDB. Likewise UI/UX is my point of interest so in the meantime
+            I'am doing some graphics like the ones on this site.
+          </P>
         </TextWraper>
         <Container>
           <TechWraper>
