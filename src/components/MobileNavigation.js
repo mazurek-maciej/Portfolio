@@ -40,6 +40,9 @@ const BackgroundBlur = styled.div`
 const MenuLink = styled(Link)`
   color: ${({theme}) => theme.colors.$f};
   padding: 24px;
+  :active {
+    background-color: ${({theme}) => theme.colors.$testPrimary};
+  }
 `;
 
 const MobileNavigation = ({active, handleClick}) => (
