@@ -170,14 +170,11 @@ class About extends Component {
           <Subheading technologies underline>
             Technologies
           </Subheading>
+          <P>These are technologies that I'am mostly focused on right now.</P>
           <P>
-            Prime technologies that I'am mostly focused on. Besides what is
-            shown below I'am also want to learn testing in Jest.
-          </P>
-          <P>
-            Later on I'am wanted to dive more into: Node.js, Webpack, Express,
-            MongoDB. Likewise UI/UX is my point of interest so in the meantime
-            I'am doing some graphics like the ones on this site.
+            Beside that I'am also wanted to dive more into: Node.js, Webpack,
+            Express, MongoDB, Jest. Likewise UI/UX is my point of interest so in
+            the meantime I'am doing some graphics like the ones on this site.
           </P>
         </TextWraper>
         <Container>
