@@ -21,10 +21,10 @@ const PosedNav = posed.div({
 
 const Wraper = styled(PosedNav)`
   position: absolute;
+  display: flex;
   z-index: 1;
   right: 0;
   height: 100vh;
-  display: flex;
   flex-direction: column;
   background-color: ${({theme}) => theme.colors.$primary};
   box-shadow: -6px 10px 15px 0 hsla(0, 0%, 0%, 0.2);

@@ -13,7 +13,7 @@ const MainWraper = styled.div`
   position: relative;
   flex-direction: column;
   flex-wrap: wrap;
-  height: calc(100vh - 56px);
+  height: 100vh;
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
