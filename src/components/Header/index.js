@@ -28,8 +28,10 @@ const HeaderWraper = styled.div`
   position: fixed;
   z-index: 1;
 `;
-const StyledHeader = styled.nav`
+const RelativeWraper = styled.div`
   position: relative;
+`;
+const StyledHeader = styled.nav`
   display: flex;
   z-index: 1;
   justify-content: center;
@@ -118,40 +120,47 @@ class Header extends React.Component {
     const {active} = this.state;
     return (
       <HeaderWraper>
-        <StyledHeader>
-          <CenterWraper>
-            <LeftAndRightWraper>
-              <LeftWraper>
-                <MLogo src={maciekLogo} />
-              </LeftWraper>
-              <RightWraper>
-                <MenuLink to="main" spy={true} smooth={true} duration={500}>
-                  Home
-                </MenuLink>
-                <MenuLink to="about" spy={true} smooth={true} duration={500}>
-                  About
-                </MenuLink>
-                <MenuLink to="projects" spy={true} smooth={true} duration={500}>
-                  Projects
-                </MenuLink>
-                <MenuLink to="footer" spy={true} smooth={true} duration={500}>
-                  Contact
-                </MenuLink>
-                <MenuButton onClick={this.displayMobileNav}>
-                  <MenuIcon
-                    active={active}
-                    pose={active ? 'hidden' : 'visible'}
-                  />
-                  <MenuIconCollapsed
-                    active={active}
-                    pose={active ? 'visible' : 'hidden'}
-                  />
-                </MenuButton>
-              </RightWraper>
-            </LeftAndRightWraper>
-          </CenterWraper>
-        </StyledHeader>
-        <MobileNavigation active={active} handleClick={this.handleClick} />
+        <RelativeWraper>
+          <StyledHeader>
+            <CenterWraper>
+              <LeftAndRightWraper>
+                <LeftWraper>
+                  <MLogo src={maciekLogo} />
+                </LeftWraper>
+                <RightWraper>
+                  <MenuLink to="main" spy={true} smooth={true} duration={500}>
+                    Home
+                  </MenuLink>
+                  <MenuLink to="about" spy={true} smooth={true} duration={500}>
+                    About
+                  </MenuLink>
+                  <MenuLink
+                    to="projects"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                  >
+                    Projects
+                  </MenuLink>
+                  <MenuLink to="footer" spy={true} smooth={true} duration={500}>
+                    Contact
+                  </MenuLink>
+                  <MenuButton onClick={this.displayMobileNav}>
+                    <MenuIcon
+                      active={active}
+                      pose={active ? 'hidden' : 'visible'}
+                    />
+                    <MenuIconCollapsed
+                      active={active}
+                      pose={active ? 'visible' : 'hidden'}
+                    />
+                  </MenuButton>
+                </RightWraper>
+              </LeftAndRightWraper>
+            </CenterWraper>
+          </StyledHeader>
+          <MobileNavigation active={active} handleClick={this.handleClick} />
+        </RelativeWraper>
       </HeaderWraper>
     );
   }

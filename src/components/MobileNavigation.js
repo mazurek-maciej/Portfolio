@@ -4,7 +4,7 @@ import posed from 'react-pose';
 import {Link} from 'react-scroll';
 import {media} from '../utils/media';
 
-const PosedNav = posed.div({
+const PosedNav = posed.nav({
   visible: {
     x: '0%',
     transition: {
@@ -18,7 +18,10 @@ const PosedNav = posed.div({
     },
   },
 });
-
+const AbsoluteWraper = styled.div`
+  position: absolute;
+  right: 0;
+`;
 const MobileNavWraper = styled(PosedNav)`
   position: absolute;
   right: 0;
@@ -45,7 +48,7 @@ const MenuLink = styled(Link)`
 `;
 
 const MobileNavigation = ({active, handleClick}) => (
-  <React.Fragment>
+  <>
     <MobileNavWraper active={active} pose={active ? 'visible' : 'hidden'}>
       <MenuLink to="main" spy={true} smooth={true} duration={500}>
         Home
@@ -61,6 +64,6 @@ const MobileNavigation = ({active, handleClick}) => (
       </MenuLink>
     </MobileNavWraper>
     <BackgroundBlur active={active} onClick={handleClick} />
-  </React.Fragment>
+  </>
 );
 export default MobileNavigation;
