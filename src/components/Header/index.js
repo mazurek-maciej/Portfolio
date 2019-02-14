@@ -24,7 +24,7 @@ const PosedMenuIconCollapsed = posed(X)({
   },
 });
 
-const Wraper = styled.div`
+const HeaderWraper = styled.div`
   position: fixed;
   z-index: 1;
 `;
@@ -117,7 +117,7 @@ class Header extends React.Component {
   render() {
     const {active} = this.state;
     return (
-      <Wraper>
+      <HeaderWraper>
         <StyledHeader>
           <CenterWraper>
             <LeftAndRightWraper>
@@ -152,7 +152,7 @@ class Header extends React.Component {
           </CenterWraper>
         </StyledHeader>
         <MobileNavigation active={active} handleClick={this.handleClick} />
-      </Wraper>
+      </HeaderWraper>
     );
   }
 }

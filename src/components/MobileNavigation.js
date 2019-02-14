@@ -19,7 +19,7 @@ const PosedNav = posed.div({
   },
 });
 
-const Wraper = styled(PosedNav)`
+const MobileNavWraper = styled(PosedNav)`
   position: absolute;
   right: 0;
   display: flex;
@@ -46,7 +46,7 @@ const MenuLink = styled(Link)`
 
 const MobileNavigation = ({active, handleClick}) => (
   <React.Fragment>
-    <Wraper active={active} pose={active ? 'visible' : 'hidden'}>
+    <MobileNavWraper active={active} pose={active ? 'visible' : 'hidden'}>
       <MenuLink to="main" spy={true} smooth={true} duration={500}>
         Home
       </MenuLink>
@@ -59,7 +59,7 @@ const MobileNavigation = ({active, handleClick}) => (
       <MenuLink to="footer" spy={true} smooth={true} duration={500}>
         Contact
       </MenuLink>
-    </Wraper>
+    </MobileNavWraper>
     <BackgroundBlur active={active} onClick={handleClick} />
   </React.Fragment>
 );
