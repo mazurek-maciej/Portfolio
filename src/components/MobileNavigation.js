@@ -12,32 +12,51 @@ const PosedNav = posed.nav({
     },
   },
   hidden: {
-    x: '100%',
+    x: '150%',
     transition: {
       x: {ease: 'easeIn', duration: 200},
     },
   },
 });
-const AbsoluteWraper = styled.div`
-  position: absolute;
-  right: 0;
-`;
+const PosedBg = posed.div({
+  visible: {
+    x: '0%',
+    opacity: 0.6,
+    transition: {
+      x: {ease: 'easeOut', duration: 200},
+      opacity: {ease: 'linear', duration: 180},
+    },
+  },
+  hidden: {
+    x: '150%',
+    opacity: 0,
+    transition: {
+      x: {ease: 'easeIn', duration: 200},
+    },
+  },
+});
+
 const MobileNavWraper = styled(PosedNav)`
-  position: absolute;
+  position: fixed;
   right: 0;
+  transform: translateX(100%);
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  justify-content: center;
+  z-index: 2;
   height: 100vh;
   background-color: ${({theme}) => theme.colors.$primary};
 `;
-const BackgroundBlur = styled.div`
-  width: 100vw;
+const BackgroundBlur = styled(PosedBg)`
+  position: fixed;
+  display: block;
+  right: 0;
+  transform: translateX(100%);
+  z-index: 1;
+  width: 100%;
   height: 100vh;
   content: '';
-  display: ${props => (props.active ? 'block' : 'none')};
   background-color: black;
-  opacity: 0.4;
 `;
 const MenuLink = styled(Link)`
   color: ${({theme}) => theme.colors.$f};
@@ -63,7 +82,11 @@ const MobileNavigation = ({active, handleClick}) => (
         Contact
       </MenuLink>
     </MobileNavWraper>
-    <BackgroundBlur active={active} onClick={handleClick} />
+    <BackgroundBlur
+      active={active}
+      onClick={handleClick}
+      pose={active ? 'visible' : 'hidden'}
+    />
   </>
 );
 export default MobileNavigation;

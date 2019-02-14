@@ -102,25 +102,27 @@ const MLogo = styled.img`
 `;
 
 class Header extends React.Component {
-  state = {
-    active: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: '',
+    };
+  }
   componentDidMount() {}
   handleClick = () => {
-    if (this.state.active === true) {
-      this.setState({active: false});
+    if (this.state.active === 'active') {
+      this.setState({active: ''});
     }
   };
   displayMobileNav = () => {
-    this.setState(prevState => ({
-      active: !prevState.active,
-    }));
+    this.setState({active: 'active'});
   };
   render() {
     const {active} = this.state;
+    console.log(active);
     return (
-      <HeaderWraper>
-        <RelativeWraper>
+      <>
+        <HeaderWraper>
           <StyledHeader>
             <CenterWraper>
               <LeftAndRightWraper>
@@ -150,18 +152,14 @@ class Header extends React.Component {
                       active={active}
                       pose={active ? 'hidden' : 'visible'}
                     />
-                    <MenuIconCollapsed
-                      active={active}
-                      pose={active ? 'visible' : 'hidden'}
-                    />
                   </MenuButton>
                 </RightWraper>
               </LeftAndRightWraper>
             </CenterWraper>
           </StyledHeader>
-          <MobileNavigation active={active} handleClick={this.handleClick} />
-        </RelativeWraper>
-      </HeaderWraper>
+        </HeaderWraper>
+        <MobileNavigation active={active} handleClick={this.handleClick} />
+      </>
     );
   }
 }
