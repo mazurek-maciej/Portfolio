@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import posed from 'react-pose';
 import {graphql} from 'gatsby';
 import Img from 'gatsby-image';
@@ -45,8 +45,8 @@ const AboutWraper = styled.div`
   `}
 `;
 const Container = styled.div`
-  margin: 0 auto;
-  max-width: 500px;
+  display: flex;
+  justify-content: center;
   width: 100%;
   ${media.tablet`
     display: flex;
@@ -65,31 +65,22 @@ const TextWraper = styled.div`
 `;
 const TechWraper = styled.div`
   position: relative;
-  max-width: 500px;
-  height: 420px;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #19242e;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2375c1f0' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-  box-shadow: 0 4px 25px hsla(203, 0%, 20%, 0.5);
-  padding: 32px;
-  border-radius: 2.1rem;
-  margin-top: 2rem;
+  height: 260px;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 240px);
+  padding-bottom: 2rem;
   ${media.tablet`
     margin-top: 1rem;
     height: 250px;
-    padding-top: 32px;
     padding-bottom: 0;
-    max-width: 260px;
   `};
   ${media.phone`
+    grid-template-columns: repeat(2, 180px);
+    grid-template-rows: repeat(2, 120px);
     margin-top: 1rem;
     height: 250px;
-    padding-top: 32px;
     padding-bottom: 0;
-    max-width: 260px;
   `};
 `;
 const Text = styled(PosedText)`
@@ -100,20 +91,12 @@ const Text = styled(PosedText)`
   margin: 0;
   color: ${({theme}) => theme.colors.$white};
 `;
-const TopContainer = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-`;
-const BottomContainer = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-`;
+
 const ImgContainer = styled(PosedIcon)`
   position: relative;
-  flex: 1;
+  align-self: stretch;
   margin: 32px;
+  flex: 1;
   background-image: url(${props =>
     props.js
       ? `${jsIcon}`
@@ -127,12 +110,31 @@ const ImgContainer = styled(PosedIcon)`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  ${media.phone` margin: 16px`}
+  ${media.phone` margin: 8px`}
+`;
+const IconWraperAnimation = keyframes`
+    0%{background-position:93% 0%}
+    50%{background-position:0% 100%}
+    100%{background-position:93% 0%}
 `;
 const IconWraper = styled.div`
   flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  margin: 8px;
+  border-radius: 8px;
+  animation: ${IconWraperAnimation} 30s ease infinite;
+  background: linear-gradient(38deg, #19242e, #25495e);
+  background-size: 400% 400%;
+  box-shadow: 0 4px 15px hsla(0, 0%, 0%, 0.5);
+`;
+const IconText = styled.span`
+  align-self: stretch;
+  margin: 8px;
+  font-size: 1.1rem;
+  color: ${({theme}) => theme.colors.$f};
+  text-align: center;
 `;
 
 class About extends Component {
@@ -143,77 +145,62 @@ class About extends Component {
     sc: false,
   };
 
-  onHoverChangeState = e => this.setState({[e]: true});
-  onLeaveChangeState = e => this.setState({[e]: false});
-
   render() {
     const {js, react, gatsby, sc} = this.state;
     return (
       <AboutWraper name="about">
         <TextWraper>
           <Subheading about underline>
-            Few words about me
+            O mnie
           </Subheading>
           <P>
-            Since July 2018 I'am decide to change my point of interest from
-            Swift lang to become front-end developer.
+            Nazywam się Maciej Mazurek i od lipca 2018 roku postanowiłem zostać
+            front-end developerem.
           </P>
           <P>
-            Minimalists aproach to design websites is what I prefere, but I'am
-            trying to fit to the clients needs.
+            Systematyczna praca, dążenie do celu oraz chcęc do nauki są moimi
+            silnymi atutami.
           </P>
-          <P>
-            Now I’am mostly focused on learning React and improving JavaScript.
-            Motivation to work and full commitment are my driving force in
-            developing.
+          <P paddingBtm>
+            Obecnie najwięcej czasu poświęcam React-owi, którego nauka sprawia
+            mi dotychczas najwięcej frajdy oraz budzi chęc odkrywania coraz to
+            nowszych kwesti z nim i nie tylko związanych.
           </P>
           <Subheading technologies underline>
-            Technologies
+            Technologie
           </Subheading>
-          <P>These are technologies that I'am mostly focused on right now.</P>
+          <P>Poniżej znajdują się technologie, które obecnie zagłębiam.</P>
           <P>
-            Beside that I'am also wanted to dive more into: Node.js, Webpack,
-            Express, MongoDB, Jest. Likewise UI/UX is my point of interest so in
-            the meantime I'am doing some graphics like the ones on this site.
+            W późniejszym etapie rozwoju chce również poznać i nauczyć się
+            więcej m.in. o: Node.js, Webpack, Express, MongoDB, Jest oraz wiele
+            innych.
+          </P>
+          <P paddingBtm>
+            Również kwestia projektowania UI/UX jest czymś co chcę poznać
+            lepiej. Obecnie makiety oraz grafiki tworzę w Sketch-u.
           </P>
         </TextWraper>
         <Container>
           <TechWraper>
-            <TopNotch />
-            <TopContainer>
-              <IconWraper
-                onMouseEnter={() => this.onHoverChangeState('js')}
-                onMouseLeave={() => this.onLeaveChangeState('js')}
-              >
-                <ImgContainer js pose={js ? 'visible' : 'hidden'} />
-                <Text pose={js ? 'visible' : 'hidden'}>JavaScript</Text>
-              </IconWraper>
+            <IconWraper>
+              <ImgContainer js />
+              <IconText>Javascript</IconText>
+            </IconWraper>
 
-              <IconWraper
-                onMouseEnter={() => this.onHoverChangeState('react')}
-                onMouseLeave={() => this.onLeaveChangeState('react')}
-              >
-                <ImgContainer react pose={react ? 'visible' : 'hidden'} />
-                <Text pose={react ? 'visible' : 'hidden'}>React</Text>
-              </IconWraper>
-            </TopContainer>
-            <BottomContainer>
-              <IconWraper
-                onMouseEnter={() => this.onHoverChangeState('gatsby')}
-                onMouseLeave={() => this.onLeaveChangeState('gatsby')}
-              >
-                <ImgContainer gatsby pose={gatsby ? 'visible' : 'hidden'} />
-                <Text pose={gatsby ? 'visible' : 'hidden'}>Gatsby </Text>
-              </IconWraper>
+            <IconWraper>
+              <ImgContainer react />
+              <IconText>React</IconText>
+            </IconWraper>
 
-              <IconWraper
-                onMouseEnter={() => this.onHoverChangeState('sc')}
-                onMouseLeave={() => this.onLeaveChangeState('sc')}
-              >
-                <ImgContainer styledIc pose={sc ? 'visible' : 'hidden'} />
-                <Text pose={sc ? 'visible' : 'hidden'}>styled-components</Text>
-              </IconWraper>
-            </BottomContainer>
+            <IconWraper>
+              <ImgContainer gatsby />
+              <IconText>Gatsby</IconText>
+            </IconWraper>
+
+            <IconWraper>
+              <ImgContainer styledIc />
+              <IconText>styled-components</IconText>
+            </IconWraper>
           </TechWraper>
         </Container>
       </AboutWraper>

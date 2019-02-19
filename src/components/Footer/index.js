@@ -67,10 +67,10 @@ const Footer = () => {
             Home
           </Link>
           <Link to="about" spy={true} smooth={true} duration={500}>
-            About
+            O mnie
           </Link>
           <Link to="projects" spy={true} smooth={true} duration={500}>
-            Projects
+            Projekty
           </Link>
         </CenterContainer>
         <RightContainer>

@@ -11,7 +11,7 @@ const Description = styled.p`
       : null};
   font-size: 1rem;
   margin: 0;
-  margin-left: ${props => (props.projects || props.desc ? '8px' : '0')};
+  margin-left: ${props => (props.projects || props.desc ? '16px' : '0')};
   ${media.phone`
     font-size: .8rem;
   `}

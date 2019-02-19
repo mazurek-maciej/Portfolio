@@ -14,8 +14,7 @@ const MainContentWraper = styled.div`
   align-items: center;
   height: 100%;
   max-width: 1120px;
-  width: 100%;
-  margin: 0 auto;
+  margin: 0 8px;
   position: relative;
   ${media.phone`
     height: 100%;
@@ -26,34 +25,37 @@ const MainContentWraper = styled.div`
 `;
 const ProjectsWraper = styled.div`
   display: flex;
+  justify-content: space-around;
   position: relative;
-  flex-direction: column;
   height: 60vh;
   max-width: 900px;
   width: 100%;
   margin-top: 16px;
   ${media.phone`
+    flex-direction: column;
     height: 100vh;
     justify-content: center;
   `}
 `;
 
 const RightContainer = styled.div`
-  flex: 1;
   max-width: 380px;
   width: 100%;
-  align-self: flex-end;
+  height: 400px;
   border-radius: 10px;
   margin-bottom: 16px;
   background-color: ${({theme}) => theme.colors.$primary};
-  box-shadow: 0 5px 25px hsla(210, 20%, 20%, 0.4);
-  transition: all 0.2s;
+  box-shadow: 0 4px 15px hsla(210, 20%, 10%, 0.6);
+  transition: all 0.4s;
   position: relative;
   ${media.phone`
     max-width: 300px;
     width: 100%;
     align-self: center;
   `}
+  :hover {
+    transform: translateY(-1px);
+  }
   &::after {
     position: absolute;
     top: 0;
@@ -62,7 +64,7 @@ const RightContainer = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    box-shadow: 0 8px 35px hsla(210, 20%, 20%, 0.3);
+    box-shadow: 0 8px 25px hsla(210, 20%, 20%, 0.3);
     opacity: 0;
     transition: opacity 0.2s;
     z-index: -1;
@@ -72,7 +74,6 @@ const RightContainer = styled.div`
   }
 `;
 const LeftContainer = styled(RightContainer)`
-  align-self: flex-start;
   ${media.phone`
     align-self: center;
   `}
@@ -91,7 +92,7 @@ const ImgContainer = styled(Img)`
 const Projects = ({nutrikonImg, tastyImg}) => (
   <MainContentWraper name="projects">
     <Subheading underline technologies>
-      Projects
+      Projekty
     </Subheading>
     <ProjectsWraper>
       <LeftContainer>
@@ -102,19 +103,23 @@ const Projects = ({nutrikonImg, tastyImg}) => (
           <span>Nutrikon</span>
         </Subheading>
         <Description desc>
-          Website created for Nutrikon company created using Gatsby.
+          Strona komerycjna wykonana dla firmy Nutrikon.
         </Description>
+        <Description desc>Oparta o framework Gatsby</Description>
       </LeftContainer>
       <RightContainer>
         <a href="https://cranky-raman-166572.netlify.com/">
           <ImgContainer fluid={tastyImg.fluid} tasty />
         </a>
         <Subheading projects>
-          <span>Tasty PO</span>
+          <span>Tasty</span>
         </Subheading>
         <Description desc>
-          Appliaction created as part of the academic project based on React and
-          Firebase - as store and authentication.
+          Aplikacja stworzona w ramach projektu studenckiego.
+        </Description>
+        <Description desc>
+          Oparta o React-a wykorzystuje Firebase jako bazę oraz system
+          autentykacji oraz mapę OpenStreetMap
         </Description>
       </RightContainer>
     </ProjectsWraper>

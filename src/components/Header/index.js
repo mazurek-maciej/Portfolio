@@ -67,10 +67,19 @@ const RightWraper = styled.div`
 `;
 const MenuLink = styled(Link)`
   color: ${({theme}) => theme.colors.$f};
+  z-index: 10;
   margin-left: 16px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
   ${media.phone`
     display: none;
   `}
+  :hover {
+    border-bottom: 2px solid ${({theme}) => theme.colors.$f};
+  }
 `;
 const MenuButton = styled.a`
   display: none;
@@ -134,7 +143,7 @@ class Header extends React.Component {
                     Home
                   </MenuLink>
                   <MenuLink to="about" spy={true} smooth={true} duration={500}>
-                    About
+                    O mnie
                   </MenuLink>
                   <MenuLink
                     to="projects"
@@ -142,10 +151,10 @@ class Header extends React.Component {
                     smooth={true}
                     duration={500}
                   >
-                    Projects
+                    Projekty
                   </MenuLink>
                   <MenuLink to="footer" spy={true} smooth={true} duration={500}>
-                    Contact
+                    Kontakt
                   </MenuLink>
                   <MenuButton onClick={this.displayMobileNav}>
                     <MenuIcon

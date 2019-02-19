@@ -20,18 +20,19 @@ const PosedNav = posed.nav({
 });
 const PosedBg = posed.div({
   visible: {
-    x: '0%',
     opacity: 0.6,
+    x: '0%',
     transition: {
-      x: {ease: 'easeOut', duration: 200},
-      opacity: {ease: 'linear', duration: 180},
+      x: {ease: 'easeIn', duration: 180},
+      opacity: {ease: 'easeIn', duration: 100},
     },
   },
   hidden: {
-    x: '150%',
     opacity: 0,
+    x: '100%',
     transition: {
-      x: {ease: 'easeIn', duration: 200},
+      x: {ease: 'easeIn', duration: 180},
+      opacity: {ease: 'easeIn', duration: 100},
     },
   },
 });
@@ -50,13 +51,12 @@ const MobileNavWraper = styled(PosedNav)`
 const BackgroundBlur = styled(PosedBg)`
   position: fixed;
   display: block;
-  right: 0;
   transform: translateX(100%);
   z-index: 1;
   width: 100%;
   height: 100vh;
   content: '';
-  background-color: black;
+  background-color: hsla(0, 0%, 0%, 0.5);
 `;
 const MenuLink = styled(Link)`
   color: ${({theme}) => theme.colors.$f};
@@ -73,13 +73,13 @@ const MobileNavigation = ({active, handleClick}) => (
         Home
       </MenuLink>
       <MenuLink to="about" spy={true} smooth={true} duration={500}>
-        About
+        O mnie
       </MenuLink>
       <MenuLink to="projects" spy={true} smooth={true} duration={500}>
-        Projects
+        Projekty
       </MenuLink>
       <MenuLink to="footer" spy={true} smooth={true} duration={500}>
-        Contact
+        Kontakt
       </MenuLink>
     </MobileNavWraper>
     <BackgroundBlur
