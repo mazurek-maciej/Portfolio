@@ -14,7 +14,7 @@ import reactIcon from '../../images/react.svg';
 import gatsbyIcon from '../../images/gatsby.svg';
 import styledIcon from '../../images/styled-components.png';
 
-const PosedText = posed.p({
+const PosedText = posed.span({
   visible: {
     opacity: 1,
     scale: 1,
@@ -93,7 +93,6 @@ const Text = styled(PosedText)`
 `;
 
 const ImgContainer = styled(PosedIcon)`
-  position: relative;
   align-self: stretch;
   margin: 32px;
   flex: 1;
@@ -120,7 +119,7 @@ const IconWraperAnimation = keyframes`
 const IconWraper = styled.div`
   flex: 1;
   display: flex;
-  flex-direction: column;
+  position: relative;
   justify-content: center;
   margin: 8px;
   border-radius: 8px;
@@ -129,12 +128,19 @@ const IconWraper = styled.div`
   background-size: 400% 400%;
   box-shadow: 0 4px 15px hsla(0, 0%, 0%, 0.5);
 `;
-const IconText = styled.span`
-  align-self: stretch;
+const IconText = styled(PosedText)`
+  position: absolute;
+  align-self: center;
+  flex: 1;
+  font-size: 1.5rem;
   margin: 8px;
-  font-size: 1.1rem;
+  opacity: 0;
+  z-index: 2;
   color: ${({theme}) => theme.colors.$f};
   text-align: center;
+  ${media.phone`
+    font-size: 1rem;
+  `}
 `;
 
 class About extends Component {
@@ -144,6 +150,7 @@ class About extends Component {
     gatsby: false,
     sc: false,
   };
+  handleSetState = e => this.setState(prevState => ({[e]: !prevState[e]}));
 
   render() {
     const {js, react, gatsby, sc} = this.state;
@@ -182,24 +189,38 @@ class About extends Component {
         </TextWraper>
         <Container>
           <TechWraper>
-            <IconWraper>
-              <ImgContainer js />
-              <IconText>Javascript</IconText>
+            <IconWraper
+              onMouseEnter={() => this.handleSetState('js')}
+              onMouseLeave={() => this.handleSetState('js')}
+            >
+              <ImgContainer js pose={js ? 'visible' : 'hidden'} />
+              <IconText pose={js ? 'visible' : 'hidden'}>Javascript</IconText>
             </IconWraper>
 
-            <IconWraper>
-              <ImgContainer react />
-              <IconText>React</IconText>
+            <IconWraper
+              onMouseEnter={() => this.handleSetState('react')}
+              onMouseLeave={() => this.handleSetState('react')}
+            >
+              <ImgContainer react pose={react ? 'visible' : 'hidden'} />
+              <IconText pose={react ? 'visible' : 'hidden'}>React</IconText>
             </IconWraper>
 
-            <IconWraper>
-              <ImgContainer gatsby />
-              <IconText>Gatsby</IconText>
+            <IconWraper
+              onMouseEnter={() => this.handleSetState('gatsby')}
+              onMouseLeave={() => this.handleSetState('gatsby')}
+            >
+              <ImgContainer gatsby pose={gatsby ? 'visible' : 'hidden'} />
+              <IconText pose={gatsby ? 'visible' : 'hidden'}>Gatsby</IconText>
             </IconWraper>
 
-            <IconWraper>
-              <ImgContainer styledIc />
-              <IconText>styled-components</IconText>
+            <IconWraper
+              onMouseEnter={() => this.handleSetState('sc')}
+              onMouseLeave={() => this.handleSetState('sc')}
+            >
+              <ImgContainer styledIc pose={sc ? 'visible' : 'hidden'} />
+              <IconText pose={sc ? 'visible' : 'hidden'}>
+                Styled-components
+              </IconText>
             </IconWraper>
           </TechWraper>
         </Container>

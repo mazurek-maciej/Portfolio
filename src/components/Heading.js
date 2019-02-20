@@ -16,7 +16,7 @@ const Heading = styled.h1`
   text-align: center;
   ${media.phone`
     font-weight: ${({theme}) => theme.font.superbold};
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 1rem;
   `};
   ::before {
