@@ -14,7 +14,7 @@ const MainContentWraper = styled.div`
   align-items: center;
   height: 100%;
   max-width: 1120px;
-  margin: 0 8px;
+  margin: 0 auto;
   position: relative;
   ${media.phone`
     height: 100%;
@@ -91,7 +91,7 @@ const ImgContainer = styled(Img)`
 `;
 const Projects = ({nutrikonImg, tastyImg}) => (
   <MainContentWraper name="projects">
-    <Subheading underline technologies>
+    <Subheading underline technologies projectsTitle>
       Projekty
     </Subheading>
     <ProjectsWraper>
