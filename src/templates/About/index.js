@@ -37,7 +37,6 @@ class About extends Component {
   render() {
     const {js, react, gatsby, sc} = this.state;
     const {edges} = this.props.allContent;
-    console.log(edges);
     return (
       <AboutWraper name="about">
         <TextWraper>
@@ -46,7 +45,7 @@ class About extends Component {
               <Subheading about underline>
                 {content.node.frontmatter.title}
               </Subheading>
-              <P
+              <div
                 paddingBtm
                 dangerouslySetInnerHTML={{__html: content.node.html}}
               />

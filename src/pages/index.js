@@ -8,7 +8,6 @@ import Projects from '../templates/Projects';
 export default class Index extends React.Component {
   render() {
     const {data} = this.props;
-    console.log(data);
     return (
       <Layout>
         <Main laptopImage={data.bg} />
