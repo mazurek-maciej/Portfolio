@@ -8,7 +8,10 @@ import Projects from '../templates/Projects';
 export default ({data}) => (
   <Layout>
     <Main laptopImage={data.bg} />
-    <About />
+    <About
+      aboutContentText={data.aboutContent}
+      projectsContentText={data.projectsContent}
+    />
     <Projects nutrikonImg={data.nutrikon} tastyImg={data.tasty} />
   </Layout>
 );
@@ -29,6 +32,18 @@ export const query = graphql`
       fluid(maxHeight: 200, quality: 100) {
         ...GatsbyImageSharpFluid
       }
+    }
+    aboutContent: markdownRemark {
+      frontmatter {
+        title
+      }
+      html
+    }
+    projectsContent: markdownRemark {
+      frontmatter {
+        title
+      }
+      html
     }
   }
 `;

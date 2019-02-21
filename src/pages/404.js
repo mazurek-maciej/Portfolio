@@ -1,36 +1,30 @@
-import React from 'react'
-import styled from 'styled-components'
-
-import gif from '../assets/404.gif'
+import React from 'react';
+import styled, {keyframes} from 'styled-components';
 
 const Styled404 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  p {
-    margin-top: 2rem;
-    font-size: 1.1rem;
-    font-family: 'Poppin', sans-serif;
-    font-weight: 600;
-    color: #1d1d1d;
-    @media (min-width: 768px) {
-      font-size: 2.2rem;
-    }
+`;
+const H1 = styled.h1``;
+const A = styled.a``;
+const SpanAnimation = keyframes`
+  0% {
+    transform: rotate(0deg)
   }
-  img {
-    width: 38rem;
-    border: 4px solid #FEC83E;
-    border-radius: 4px;
-    margin-bottom: 2rem;
-    width: 50%;
-    max-width: 30rem;
-    min-width: 15rem;
+  100% {
+    transform: rotate(30deg)
   }
-`
+`;
+const Span = styled.span`
+  animation: ${SpanAnimation} 1s ease;
+`;
 
 export default () => (
   <Styled404>
-    <p>Yikes! This page doesn't exist! 😬</p>
-    <img src={gif} />
+    <H1>Strona nie istnieje!</H1>
+    <A href="https://mazurekm.pl">
+      Wróc do strony głównej<Span>👈🏻</Span>
+    </A>
   </Styled404>
-)
+);

@@ -1,24 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
-import {ThemeProvider, createGlobalStyle, keyframes} from 'styled-components';
+import {ThemeProvider, createGlobalStyle} from 'styled-components';
 import {theme} from '../../utils/theme';
 import Header from '../Header';
 import Footer from '../Footer';
+import RichFooter from '../RichFooter';
 import './index.sass';
-
-const anim = keyframes`
-  0% {
-		background-position: 0 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0 50%
-	}
-`;
 
 const GlobalStyle = createGlobalStyle`
   body {

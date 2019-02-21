@@ -1,11 +1,8 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
 import Img from 'gatsby-image';
-import {Link} from 'react-scroll';
 
 import Heading from '../../components/Heading';
-import Subheading from '../../components/Subheading';
-import P from '../../components/P';
 import {media} from '../../utils/media';
 
 const MainWraper = styled.div`

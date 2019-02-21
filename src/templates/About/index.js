@@ -1,24 +1,11 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import posed from 'react-pose';
-import {graphql} from 'gatsby';
-import Img from 'gatsby-image';
 import TechnologiesTiles from './TechnologiesTiles';
 
 import Subheading from '../../components/Subheading';
 import P from '../../components/P';
 import {media} from '../../utils/media';
 
-const PosedText = posed.span({
-  visible: {
-    opacity: 1,
-    scale: 1,
-  },
-  hidden: {
-    opacity: 0,
-    scale: 0.1,
-  },
-});
 const AboutWraper = styled.div`
   display: flex;
   flex-direction: column;
@@ -49,38 +36,24 @@ class About extends Component {
 
   render() {
     const {js, react, gatsby, sc} = this.state;
+    const {aboutContentText, projectsContentText} = this.props;
     return (
       <AboutWraper name="about">
         <TextWraper>
           <Subheading about underline>
-            O mnie
+            {aboutContentText.frontmatter.title}
           </Subheading>
-          <P>
-            Nazywam się Maciej Mazurek i od lipca 2018 roku postanowiłem zostać
-            front-end developerem.
-          </P>
-          <P>
-            Systematyczna praca, dążenie do celu oraz chcęc do nauki są moimi
-            silnymi atutami.
-          </P>
-          <P paddingBtm>
-            Obecnie najwięcej czasu poświęcam React-owi, którego nauka sprawia
-            mi dotychczas najwięcej frajdy oraz budzi chęc odkrywania coraz to
-            nowszych kwesti z nim i nie tylko związanych.
-          </P>
+          <P
+            paddingBtm
+            dangerouslySetInnerHTML={{__html: aboutContentText.html}}
+          />
           <Subheading technologies underline>
-            Technologie
+            {projectsContentText.frontmatter.title}
           </Subheading>
-          <P>Poniżej znajdują się technologie, które obecnie zagłębiam.</P>
-          <P>
-            W późniejszym etapie rozwoju chce również poznać i nauczyć się
-            więcej m.in. o: Node.js, Webpack, Express, MongoDB, Jest oraz wiele
-            innych.
-          </P>
-          <P paddingBtm>
-            Również kwestia projektowania UI/UX jest czymś co chcę poznać
-            lepiej. Obecnie makiety oraz grafiki tworzę w Sketch-u.
-          </P>
+          <P
+            paddingBtm
+            dangerouslySetInnerHTML={{__html: projectsContentText.html}}
+          />
         </TextWraper>
         <TechnologiesTiles
           handleSetState={this.handleSetState}
@@ -94,15 +67,3 @@ class About extends Component {
   }
 }
 export default About;
-
-export const pageQuery = graphql`
-  query {
-    imageOne: file(relativePath: {eq: "React-icon.svg"}) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import posed from 'react-pose';
 import {Link} from 'react-scroll';
-import {media} from '../utils/media';
 
 const PosedNav = posed.nav({
   visible: {
