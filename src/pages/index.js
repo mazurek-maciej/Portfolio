@@ -5,16 +5,19 @@ import Main from '../templates/Main';
 import About from '../templates/About';
 import Projects from '../templates/Projects';
 
-export default ({data}) => (
-  <Layout>
-    <Main laptopImage={data.bg} />
-    <About
-      aboutContentText={data.aboutContent}
-      projectsContentText={data.projectsContent}
-    />
-    <Projects nutrikonImg={data.nutrikon} tastyImg={data.tasty} />
-  </Layout>
-);
+export default class Index extends React.Component {
+  render() {
+    const {data} = this.props;
+    console.log(data);
+    return (
+      <Layout>
+        <Main laptopImage={data.bg} />
+        <About allContent={data.allContent} />
+        <Projects nutrikonImg={data.nutrikon} tastyImg={data.tasty} />
+      </Layout>
+    );
+  }
+}
 
 export const query = graphql`
   query Laptop {
@@ -33,17 +36,15 @@ export const query = graphql`
         ...GatsbyImageSharpFluid
       }
     }
-    aboutContent: markdownRemark {
-      frontmatter {
-        title
+    allContent: allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          html
+        }
       }
-      html
-    }
-    projectsContent: markdownRemark {
-      frontmatter {
-        title
-      }
-      html
     }
   }
 `;

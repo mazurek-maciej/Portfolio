@@ -36,24 +36,21 @@ class About extends Component {
 
   render() {
     const {js, react, gatsby, sc} = this.state;
-    const {aboutContentText, projectsContentText} = this.props;
+    const {edges} = this.props.allContent;
     return (
       <AboutWraper name="about">
         <TextWraper>
-          <Subheading about underline>
-            {aboutContentText.frontmatter.title}
-          </Subheading>
-          <P
-            paddingBtm
-            dangerouslySetInnerHTML={{__html: aboutContentText.html}}
-          />
-          <Subheading technologies underline>
-            {projectsContentText.frontmatter.title}
-          </Subheading>
-          <P
-            paddingBtm
-            dangerouslySetInnerHTML={{__html: projectsContentText.html}}
-          />
+          {edges.map(content => (
+            <>
+              <Subheading about underline>
+                {content.node.frontmatter.title}
+              </Subheading>
+              <P
+                paddingBtm
+                dangerouslySetInnerHTML={{__html: content.node.html}}
+              />
+            </>
+          ))}
         </TextWraper>
         <TechnologiesTiles
           handleSetState={this.handleSetState}
