@@ -37,11 +37,12 @@ class About extends Component {
   render() {
     const {js, react, gatsby, sc} = this.state;
     const {edges} = this.props.allContent;
+    console.log(edges);
     return (
       <AboutWraper name="about">
         <TextWraper>
-          {edges.map(content => (
-            <>
+          {edges.map((content, index) => (
+            <React.Fragment key={index}>
               <Subheading about underline>
                 {content.node.frontmatter.title}
               </Subheading>
@@ -49,7 +50,7 @@ class About extends Component {
                 paddingBtm
                 dangerouslySetInnerHTML={{__html: content.node.html}}
               />
-            </>
+            </React.Fragment>
           ))}
         </TextWraper>
         <TechnologiesTiles
