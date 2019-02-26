@@ -1,8 +1,8 @@
 export const NutrikonDescription = `
-Strona komerycjna wykonana dla firmy Nutrikon.
-Oparta o framework Gatsby oraz Contentful jako headless CMS.
+Commercial website created for Nutrikon company.
+Based on Gatsby framework and Contentful as headless CMS.
 `;
 export const TastyDescription = `
-Aplikacja stworzona w ramach projektu studenckiego.
-Oparta o React-a wykorzystuje Firebase jako bazę oraz system autentykacji oraz mapę OpenStreetMap.
+Application created under student project.
+Based on React use Firebase as database and authentication system. Also uses OpenStreetMap.
 `;

@@ -67,16 +67,34 @@ const Footer = () => {
             Home
           </Link>
           <Link to="about" spy={true} smooth={true} duration={500}>
-            O mnie
+            About
           </Link>
           <Link to="projects" spy={true} smooth={true} duration={500}>
-            Projekty
+            Projects
           </Link>
         </CenterContainer>
         <RightContainer>
-          <a href="www.linkedin.com/in/maciej-mazurek-087a6011a">LinkedIn</a>
-          <a href="https://github.com/mazurek-maciej">Github</a>
-          <a href="mailto: maciej.mazurek.prv@gmail.com">Mail</a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="www.linkedin.com/in/maciej-mazurek-087a6011a"
+          >
+            LinkedIn
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/mazurek-maciej"
+          >
+            Github
+          </a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="mailto: maciej.mazurek.prv@gmail.com"
+          >
+            Mail
+          </a>
         </RightContainer>
       </LinksWraper>
       <BottomContainer>maciej.mazurek.prv@gmail.com</BottomContainer>

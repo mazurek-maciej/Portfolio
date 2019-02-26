@@ -81,13 +81,13 @@ const HeaderMenu = ({onClick, active}) => (
         Home
       </MenuLink>
       <MenuLink to="about" spy={true} smooth={true} duration={500}>
-        O mnie
+        About
       </MenuLink>
       <MenuLink to="projects" spy={true} smooth={true} duration={500}>
-        Projekty
+        Projects
       </MenuLink>
       <MenuLink to="footer" spy={true} smooth={true} duration={500}>
-        Kontakt
+        Contact
       </MenuLink>
       <MenuButton onClick={onClick}>
         <MenuIcon active={active} pose={active ? 'hidden' : 'visible'} />

@@ -102,7 +102,7 @@ class Main extends React.Component {
       <MainWraper name="main">
         <IntroWraper>
           <HeadingWraper>
-            <Heading>Witam wszystkich!</Heading>
+            <Heading>Hello everyone!</Heading>
           </HeadingWraper>
         </IntroWraper>
         <RegulationDiv />

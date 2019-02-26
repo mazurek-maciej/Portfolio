@@ -1,9 +1,8 @@
 ---
-title: 'O mnie'
+title: 'About'
 ---
 
-Nazywam się Maciej Mazurek i od lipca 2018 roku postanowiłem zostać front-end
-developerem. <br/>Systematyczna praca, dążenie do celu oraz chcęc do nauki są
-moimi silnymi atutami. <br/>Obecnie najwięcej czasu poświęcam React-owi, którego
-nauka sprawia mi dotychczas najwięcej frajdy oraz budzi chęc odkrywania coraz to
-nowszych kwesti z nim i nie tylko związanych.
+My name is Maciej Mazurek and since July 2018 I'm started my journey to became
+front-end developer.<br/> Systematic work, pursuing to achive goal and willing
+to learn new technologies are my main assets.<br/> Currently I'm in love with
+the React, so basically most of my time is dedicated to this framework.

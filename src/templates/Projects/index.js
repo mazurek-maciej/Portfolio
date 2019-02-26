@@ -39,7 +39,7 @@ const ProjectsWraper = styled.div`
 const Projects = ({nutrikonImg, tastyImg}) => (
   <MainContentWraper name="projects">
     <Subheading underline technologies projectsTitle>
-      Projekty
+      Projects
     </Subheading>
     <ProjectsWraper>
       <ProjectTile
