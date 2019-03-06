@@ -10,7 +10,6 @@ const AnimationLayout = poser.div({
   open: {
     opacity: 1,
     y: 0,
-    delay: 300,
   },
   closed: {
     opacity: 0,
