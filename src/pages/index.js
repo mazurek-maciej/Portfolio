@@ -1,18 +1,32 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import poser from 'react-pose';
 import {graphql} from 'gatsby';
 import Main from '../templates/Main';
 import About from '../templates/About';
 import Projects from '../templates/Projects';
 
+const AnimationLayout = poser.div({
+  open: {
+    opacity: 1,
+    y: 0,
+    delay: 300,
+  },
+  closed: {
+    opacity: 0,
+    y: 200,
+  },
+});
 export default class Index extends React.Component {
   render() {
     const {data} = this.props;
     return (
       <Layout>
-        <Main laptopImage={data.bg} />
-        <About allContent={data.allContent} />
-        <Projects nutrikonImg={data.nutrikon} tastyImg={data.tasty} />
+        <AnimationLayout initialPose="closed" pose="open">
+          <Main laptopImage={data.bg} />
+          <About allContent={data.allContent} />
+          <Projects nutrikonImg={data.nutrikon} tastyImg={data.tasty} />
+        </AnimationLayout>
       </Layout>
     );
   }

@@ -96,7 +96,7 @@ const Image = styled.img`
 class Main extends React.Component {
   render() {
     return (
-      <MainWraper initialPose="closed" pose="open" name="main">
+      <MainWraper name="main">
         <IntroWraper>
           <HeadingWraper>
             <Heading>Hello everyone!</Heading>
