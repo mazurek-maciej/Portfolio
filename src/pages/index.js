@@ -20,8 +20,8 @@ export default class Index extends React.Component {
 
 export const query = graphql`
   query Laptop {
-    bg: imageSharp(original: {src: {regex: "/Laptopx2/"}}) {
-      fluid(maxWidth: 1200, maxHeight: 1200, quality: 100) {
+    bg: imageSharp(original: {src: {regex: "/Laptopv3/"}}) {
+      fluid(maxWidth: 1000, maxHeight: 1000, quality: 100) {
         ...GatsbyImageSharpFluid
       }
     }

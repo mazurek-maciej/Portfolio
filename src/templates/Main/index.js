@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 
 import Heading from '../../components/Heading';
 import {media} from '../../utils/media';
+import Lpt from '../../images/Laptopv3.svg';
 
 const MainWraper = styled.div`
   display: flex;
@@ -26,7 +27,7 @@ const IntroWraper = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     margin: 0 8px;
   `}
 `;
@@ -58,10 +59,19 @@ const Bg = styled.div`
 const RegulationDiv = styled.div`
   flex: 1;
 `;
-const Image = styled(Img)`
-  width: 800px;
-  height: 800px;
-
+const FloatingLpt = keyframes`
+  0% {
+    transform: translateY(0);
+  };
+  100% {
+    transform: translateY(20px);
+  },
+`;
+const Image = styled.img`
+  animation: ${FloatingLpt} 3s ease-in-out infinite alternate;
+  border-radius: 30%;
+  width: 600px;
+  height: 600px;
   ${media.tablet`
     width: 560px;
     height: 560px;
@@ -71,6 +81,7 @@ const Image = styled(Img)`
     height: 380px;
   `}
 `;
+
 const scrollAnimation = keyframes`
   0% {
     transform: translateY(-30px);
@@ -107,7 +118,7 @@ class Main extends React.Component {
         </IntroWraper>
         <RegulationDiv />
         <Bg>
-          <Image fluid={this.props.laptopImage.fluid} />
+          <Image src={Lpt} alt="lpt" />
         </Bg>
         <Scroll time="0s" />
         <Scroll time="0.1s" />
