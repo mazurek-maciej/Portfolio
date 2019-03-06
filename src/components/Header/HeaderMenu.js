@@ -82,45 +82,25 @@ const HeaderMenu = ({onClick, active}) => (
       <MLogo src={maciekLogo} />
     </LeftWraper>
     <RightWraper>
-      <MenuLink
-        initialPose="closed"
-        pose="open"
-        to="main"
-        spy={true}
-        smooth={true}
-        duration={500}
-      >
-        Home
+      <MenuLink initialPose="closed" pose="open">
+        <Link to="main" spy={true} smooth={true} duration={500}>
+          Home
+        </Link>
       </MenuLink>
-      <MenuLink
-        initialPose="closed"
-        pose="open"
-        to="about"
-        spy={true}
-        smooth={true}
-        duration={500}
-      >
-        About
+      <MenuLink initialPose="closed" pose="open">
+        <Link to="about" spy={true} smooth={true} duration={500}>
+          About
+        </Link>
       </MenuLink>
-      <MenuLink
-        initialPose="closed"
-        pose="open"
-        to="projects"
-        spy={true}
-        smooth={true}
-        duration={500}
-      >
-        Projects
+      <MenuLink initialPose="closed" pose="open">
+        <Link to="projects" spy={true} smooth={true} duration={500}>
+          Projects
+        </Link>
       </MenuLink>
-      <MenuLink
-        initialPose="closed"
-        pose="open"
-        to="footer"
-        spy={true}
-        smooth={true}
-        duration={500}
-      >
-        Contact
+      <MenuLink initialPose="closed" pose="open">
+        <Link to="footer" spy={true} smooth={true} duration={500}>
+          Contact
+        </Link>
       </MenuLink>
       <MenuButton onClick={onClick}>
         <MenuIcon active={active} pose={active ? 'hidden' : 'visible'} />
