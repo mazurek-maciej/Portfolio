@@ -4,7 +4,7 @@ import poser from 'react-pose';
 
 import Heading from '../../components/Heading';
 import {media} from '../../utils/media';
-import Lpt from '../../images/Laptopv3.svg';
+import Lpt from '../../images/Laptopv3.png';
 
 const EntryAnimation = poser.div({
   open: {
@@ -72,13 +72,14 @@ const RegulationDiv = styled.div`
 `;
 const FloatingLpt = keyframes`
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translate(0, 0);
   };
   100% {
-    transform: translate3d(0, 20px, 0);
+    transform: translate(0, 30px);
   },
 `;
 const Image = styled.img`
+  animation: ${FloatingLpt} 4s alternate ease-in-out infinite;
   border-radius: 30%;
   width: 600px;
   height: 600px;
