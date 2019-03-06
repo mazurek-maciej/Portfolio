@@ -1,12 +1,23 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
-import Img from 'gatsby-image';
+import poser from 'react-pose';
 
 import Heading from '../../components/Heading';
 import {media} from '../../utils/media';
 import Lpt from '../../images/Laptopv3.svg';
 
-const MainWraper = styled.div`
+const EntryAnimation = poser.div({
+  open: {
+    opacity: 1,
+    y: 0,
+    delay: 300,
+  },
+  closed: {
+    opacity: 0,
+    y: 200,
+  },
+});
+const MainWraper = styled(EntryAnimation)`
   display: flex;
   position: relative;
   flex-direction: column;
@@ -61,14 +72,13 @@ const RegulationDiv = styled.div`
 `;
 const FloatingLpt = keyframes`
   0% {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   };
   100% {
-    transform: translateY(20px);
+    transform: translate3d(0, 20px, 0);
   },
 `;
 const Image = styled.img`
-  animation: ${FloatingLpt} 3s ease-in-out infinite alternate;
   border-radius: 30%;
   width: 600px;
   height: 600px;
@@ -82,35 +92,10 @@ const Image = styled.img`
   `}
 `;
 
-const scrollAnimation = keyframes`
-  0% {
-    transform: translateY(-30px);
-    opacity: 1
-  }
-  50% {
-    transform: translateY(-15px);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 0.1;
-  }
-`;
-const Scroll = styled.div`
-  animation: ${scrollAnimation} 1.1s linear infinite;
-  animation-delay: ${props => props.time};
-  align-self: center;
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid ${({theme}) => theme.colors.$testPrimary};
-`;
-
 class Main extends React.Component {
   render() {
     return (
-      <MainWraper name="main">
+      <MainWraper initialPose="closed" pose="open" name="main">
         <IntroWraper>
           <HeadingWraper>
             <Heading>Hello everyone!</Heading>
@@ -120,9 +105,6 @@ class Main extends React.Component {
         <Bg>
           <Image src={Lpt} alt="lpt" />
         </Bg>
-        <Scroll time="0s" />
-        <Scroll time="0.1s" />
-        <Scroll time="0.2s" />
       </MainWraper>
     );
   }

@@ -6,15 +6,6 @@ import {Menu} from 'styled-icons/feather';
 import {media} from '../../utils/media';
 import maciekLogo from '../../images/maciek_logo.svg';
 
-const PosedMenuIcon = posed(Menu)({
-  visible: {
-    opacity: 1,
-  },
-  hidden: {
-    opacity: 0,
-  },
-});
-
 const LeftAndRightWraper = styled.div`
   display: flex;
   width: 100vw;
@@ -35,7 +26,12 @@ const RightWraper = styled.div`
     }
   `}
 `;
-const MenuLink = styled(Link)`
+////
+const PosedLink = posed.li({
+  open: {y: 0, opacity: 1, transition: {all: {duration: 300}}},
+  closed: {y: -50, opacity: 0},
+});
+const MenuLink = styled(PosedLink)`
   color: ${({theme}) => theme.colors.$f};
   z-index: 10;
   margin-left: 16px;
@@ -57,6 +53,15 @@ const MenuButton = styled.a`
   display: block;
   `}
 `;
+////
+const PosedMenuIcon = posed(Menu)({
+  visible: {
+    opacity: 1,
+  },
+  hidden: {
+    opacity: 0,
+  },
+});
 const MenuIcon = styled(PosedMenuIcon)`
   display: ${props => (props.active ? 'none' : 'block')};
   color: ${({theme}) => theme.colors.$f};
@@ -77,16 +82,44 @@ const HeaderMenu = ({onClick, active}) => (
       <MLogo src={maciekLogo} />
     </LeftWraper>
     <RightWraper>
-      <MenuLink to="main" spy={true} smooth={true} duration={500}>
+      <MenuLink
+        initialPose="closed"
+        pose="open"
+        to="main"
+        spy={true}
+        smooth={true}
+        duration={500}
+      >
         Home
       </MenuLink>
-      <MenuLink to="about" spy={true} smooth={true} duration={500}>
+      <MenuLink
+        initialPose="closed"
+        pose="open"
+        to="about"
+        spy={true}
+        smooth={true}
+        duration={500}
+      >
         About
       </MenuLink>
-      <MenuLink to="projects" spy={true} smooth={true} duration={500}>
+      <MenuLink
+        initialPose="closed"
+        pose="open"
+        to="projects"
+        spy={true}
+        smooth={true}
+        duration={500}
+      >
         Projects
       </MenuLink>
-      <MenuLink to="footer" spy={true} smooth={true} duration={500}>
+      <MenuLink
+        initialPose="closed"
+        pose="open"
+        to="footer"
+        spy={true}
+        smooth={true}
+        duration={500}
+      >
         Contact
       </MenuLink>
       <MenuButton onClick={onClick}>

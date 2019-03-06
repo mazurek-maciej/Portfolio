@@ -1,9 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import posed from 'react-pose';
 import MobileNavigation from '../MobileNavigation';
 import HeaderMenu from './HeaderMenu';
 
-const HeaderWraper = styled.div`
+const PosedHeader = posed.div({
+  open: {
+    opacity: 1,
+    delay: 300,
+    staggerChildren: 70,
+  },
+  closed: {
+    opacity: 0,
+  },
+});
+const HeaderWraper = styled(PosedHeader)`
   position: fixed;
   z-index: 1;
 `;
@@ -42,7 +53,7 @@ class Header extends React.Component {
     const {active} = this.state;
     return (
       <>
-        <HeaderWraper>
+        <HeaderWraper initialPose="closed" pose="open">
           <StyledHeader>
             <CenterWraper>
               <HeaderMenu onClick={this.displayMobileNav} active={active} />

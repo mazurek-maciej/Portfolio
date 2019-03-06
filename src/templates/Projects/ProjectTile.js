@@ -1,12 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
+import posed from 'react-pose';
 import Img from 'gatsby-image';
 
 import Subheading from '../../components/Subheading';
 import Description from '../../components/Description';
 import {media} from '../../utils/media';
 
-const TemplateContainer = styled.div`
+const PosedTemplate = posed.div({
+  hoverable: true,
+  init: {
+    y: 0,
+    boxShadow: '0px 4px 15px hsla(210, 20%, 10%, 0.6)',
+    transition: {
+      all: {ease: 'easeInOut', duration: 500},
+    },
+  },
+  hover: {
+    y: '-1px',
+    boxShadow: '0px 4px 15px hsla(210, 20%, 10%, 0.8)',
+    transition: {
+      all: {ease: 'easeInOut', duration: 500},
+    },
+  },
+});
+const TemplateContainer = styled(PosedTemplate)`
   max-width: 380px;
   width: 100%;
   height: 400px;
@@ -14,32 +32,13 @@ const TemplateContainer = styled.div`
   margin-bottom: 16px;
   background-color: ${({theme}) => theme.colors.$primary};
   box-shadow: 0 4px 15px hsla(210, 20%, 10%, 0.6);
-  transition: all 0.4s;
   position: relative;
+  overflow: hidden;
   ${media.phone`
     max-width: 300px;
     width: 100%;
     align-self: center;
   `}
-  :hover {
-    transform: translateY(-1px);
-  }
-  &::after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px hsla(210, 20%, 20%, 0.3);
-    opacity: 0;
-    transition: opacity 0.2s;
-    z-index: -1;
-  }
-  :hover::after {
-    opacity: 1;
-  }
 `;
 
 const ImgContainer = styled(Img)`
