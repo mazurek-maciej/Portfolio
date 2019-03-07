@@ -9,11 +9,11 @@ import Projects from '../templates/Projects';
 const AnimationLayout = poser.div({
   open: {
     opacity: 1,
-    y: 0,
+    x: 0,
   },
   closed: {
     opacity: 0,
-    y: 200,
+    x: 100,
   },
 });
 export default class Index extends React.Component {

@@ -6,12 +6,10 @@ import HeaderMenu from './HeaderMenu';
 
 const PosedHeader = posed.div({
   open: {
-    opacity: 1,
-    delay: 300,
-    staggerChildren: 70,
+    staggerChildren: 50,
   },
   closed: {
-    opacity: 0,
+    opacity: 1,
   },
 });
 const HeaderWraper = styled(PosedHeader)`
@@ -53,10 +51,14 @@ class Header extends React.Component {
     const {active} = this.state;
     return (
       <>
-        <HeaderWraper initialPose="closed" pose="open">
+        <HeaderWraper>
           <StyledHeader>
             <CenterWraper>
-              <HeaderMenu onClick={this.displayMobileNav} active={active} />
+              <HeaderMenu
+                key="hMenu"
+                onClick={this.displayMobileNav}
+                active={active}
+              />
             </CenterWraper>
           </StyledHeader>
         </HeaderWraper>

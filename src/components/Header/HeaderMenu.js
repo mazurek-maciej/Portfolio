@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import posed from 'react-pose';
+import posed, {PoseGroup} from 'react-pose';
 import {Link} from 'react-scroll';
 import {Menu} from 'styled-icons/feather';
 import {media} from '../../utils/media';
@@ -15,7 +15,16 @@ const LeftWraper = styled.div`
   display: flex;
   align-items: center;
 `;
-const RightWraper = styled.div`
+const PosedRightWraper = posed.div({
+  open: {
+    opacity: 1,
+    staggerChildren: 300,
+  },
+  closed: {
+    opacity: 0,
+  },
+});
+const RightWraper = styled(PosedRightWraper)`
   flex: 1;
   display: flex;
   justify-content: flex-end;
@@ -28,8 +37,8 @@ const RightWraper = styled.div`
 `;
 ////
 const PosedLink = posed.li({
-  open: {y: 0, opacity: 1, transition: {all: {duration: 300}}},
-  closed: {y: -50, opacity: 0},
+  open: {x: 0, opacity: 1},
+  closed: {x: -20, opacity: 0},
 });
 const MenuLink = styled(PosedLink)`
   color: ${({theme}) => theme.colors.$f};
@@ -81,27 +90,29 @@ const HeaderMenu = ({onClick, active}) => (
     <LeftWraper>
       <MLogo src={maciekLogo} />
     </LeftWraper>
-    <RightWraper>
-      <MenuLink initialPose="closed" pose="open">
-        <Link to="main" spy={true} smooth={true} duration={500}>
-          Home
-        </Link>
-      </MenuLink>
-      <MenuLink initialPose="closed" pose="open">
-        <Link to="about" spy={true} smooth={true} duration={500}>
-          About
-        </Link>
-      </MenuLink>
-      <MenuLink initialPose="closed" pose="open">
-        <Link to="projects" spy={true} smooth={true} duration={500}>
-          Projects
-        </Link>
-      </MenuLink>
-      <MenuLink initialPose="closed" pose="open">
-        <Link to="footer" spy={true} smooth={true} duration={500}>
-          Contact
-        </Link>
-      </MenuLink>
+    <RightWraper initialPose="closed" pose="open">
+      <PoseGroup>
+        <MenuLink key="1" initialPose="closed" pose="open">
+          <Link to="main" spy={true} smooth={true} duration={500}>
+            Home
+          </Link>
+        </MenuLink>
+        <MenuLink key="2" initialPose="closed" pose="open">
+          <Link to="about" spy={true} smooth={true} duration={500}>
+            About
+          </Link>
+        </MenuLink>
+        <MenuLink key="3" initialPose="closed" pose="open">
+          <Link to="projects" spy={true} smooth={true} duration={500}>
+            Projects
+          </Link>
+        </MenuLink>
+        <MenuLink key="4" initialPose="closed" pose="open">
+          <Link to="footer" spy={true} smooth={true} duration={500}>
+            Contact
+          </Link>
+        </MenuLink>
+      </PoseGroup>
       <MenuButton onClick={onClick}>
         <MenuIcon active={active} pose={active ? 'hidden' : 'visible'} />
       </MenuButton>

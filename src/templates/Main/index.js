@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {keyframes} from 'styled-components';
-import poser from 'react-pose';
+import poser, {PoseGroup} from 'react-pose';
 
 import Heading from '../../components/Heading';
 import {media} from '../../utils/media';
@@ -9,12 +9,10 @@ import Lpt from '../../images/Laptopv3.png';
 const EntryAnimation = poser.div({
   open: {
     opacity: 1,
-    y: 0,
-    delay: 300,
+    staggerChildren: 300,
   },
   closed: {
     opacity: 0,
-    y: 200,
   },
 });
 const MainWraper = styled(EntryAnimation)`
@@ -96,16 +94,18 @@ const Image = styled.img`
 class Main extends React.Component {
   render() {
     return (
-      <MainWraper name="main">
-        <IntroWraper>
-          <HeadingWraper>
-            <Heading>Hello everyone!</Heading>
-          </HeadingWraper>
-        </IntroWraper>
-        <RegulationDiv />
-        <Bg>
-          <Image src={Lpt} alt="lpt" />
-        </Bg>
+      <MainWraper initialPose="closed" pose="open" name="main">
+        <PoseGroup>
+          <IntroWraper key="1">
+            <HeadingWraper>
+              <Heading>Hello everyone!</Heading>
+            </HeadingWraper>
+          </IntroWraper>
+          <RegulationDiv key="2" />
+          <Bg key="3">
+            <Image src={Lpt} alt="lpt" />
+          </Bg>
+        </PoseGroup>
       </MainWraper>
     );
   }
