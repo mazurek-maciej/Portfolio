@@ -1,4 +1,4 @@
-import styled, {keyframes} from 'styled-components';
+import styled, {keyframes, css} from 'styled-components';
 import {media} from '../utils/media';
 
 const HeadingAnim = keyframes`
@@ -8,6 +8,14 @@ const HeadingAnim = keyframes`
   100% {
     opacity: 0;
   }
+`;
+
+const AfterAndBefore = css`
+  animation: ${HeadingAnim} 1s linear infinite alternate;
+  font-family: Fire Code;
+  top: 0;
+  position: absolute;
+  color: ${({theme}) => theme.colors.$testPrimary};
 `;
 
 const Heading = styled.h1`
@@ -22,25 +30,17 @@ const Heading = styled.h1`
     margin-bottom: 1rem;
   `};
   ::before {
-    animation: ${HeadingAnim} 2s linear infinite alternate;
-    font-family: Fire Code;
+    ${AfterAndBefore};
     left: -40px;
-    top: 0;
     content: '<';
-    position: absolute;
-    color: ${({theme}) => theme.colors.$testPrimary};
     ${media.phone`
       left: -20px;
     `};
   }
   ::after {
-    animation: ${HeadingAnim} 2s linear infinite alternate;
-    font-family: Fire Code;
+    ${AfterAndBefore};
     content: '/>';
     right: -60px;
-    top: 0;
-    position: absolute;
-    color: ${({theme}) => theme.colors.$testPrimary};
     ${media.phone`
         right: -35px;
     `};
