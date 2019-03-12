@@ -1,19 +1,19 @@
-import React from 'react';
-import styled, {keyframes} from 'styled-components';
-import poser, {PoseGroup} from 'react-pose';
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import poser, { PoseGroup } from "react-pose";
 
-import Heading from '../../components/Heading';
-import {media} from '../../utils/media';
-import Lpt from '../../images/Laptopv3.png';
+import Heading from "../../components/Heading";
+import { media } from "../../utils/media";
+import Lpt from "../../images/Laptopv3.svg";
 
 const EntryAnimation = poser.div({
   open: {
     opacity: 1,
-    staggerChildren: 300,
+    staggerChildren: 300
   },
   closed: {
-    opacity: 0,
-  },
+    opacity: 0
+  }
 });
 const MainWraper = styled(EntryAnimation)`
   display: flex;
