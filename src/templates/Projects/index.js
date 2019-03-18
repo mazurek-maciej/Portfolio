@@ -6,7 +6,7 @@ import {media} from '../../utils/media';
 import ProjectTile from './ProjectTile';
 import {NutrikonDescription, TastyDescription} from './ProjectsDescriptions';
 
-const MainContentWraper = styled.div`
+const MainContentWraper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -6,7 +6,7 @@ import Heading from "../../components/Heading";
 import { media } from "../../utils/media";
 import Lpt from "../../images/Laptopv3.svg";
 
-const EntryAnimation = poser.div({
+const EntryAnimation = poser.section({
   open: {
     opacity: 1,
     staggerChildren: 300

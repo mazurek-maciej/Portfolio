@@ -6,7 +6,7 @@ import Subheading from '../../components/Subheading';
 import P from '../../components/P';
 import {media} from '../../utils/media';
 
-const AboutWraper = styled.div`
+const AboutWraper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
