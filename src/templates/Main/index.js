@@ -38,11 +38,13 @@ const Main = () => {
   }
 
   useEffect(() => {
-    renderVisible();
+    setTimeout(() => {
+      renderVisible();
+    }, 500);;
   });
 
   return (
-    <MainWraper name="main" pose={visible ? 'visible' : 'hidden'}>
+    <MainWraper name="main" initialPose='hidden' pose={visible ? 'visible' : 'hidden'}>
       <Intro/>
       <ImagePlaceholder image={Lpt}/>
     </MainWraper>
