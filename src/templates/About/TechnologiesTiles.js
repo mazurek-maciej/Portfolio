@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled, {keyframes} from 'styled-components';
 import posed from 'react-pose';
 import {media} from '../../utils/media';
@@ -152,5 +153,13 @@ const TechnologiesTiles = ({handleSetState, js, react, gatsby, sc}) => (
     </TechWraper>
   </Container>
 );
+
+TechnologiesTiles.propTypes = {
+  handleSetState: PropTypes.func.isRequired,
+  js: PropTypes.bool.isRequired,
+  react: PropTypes.bool.isRequired,
+  sc: PropTypes.bool.isRequired,
+  gatsby: PropTypes.bool.isRequired,
+}
 
 export default TechnologiesTiles;

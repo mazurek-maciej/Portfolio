@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import {ThemeProvider, createGlobalStyle} from 'styled-components';
-import {theme} from '../../utils/theme';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { theme } from '../../utils/theme';
 import Header from '../Header';
 import Footer from '../Footer';
 import RichFooter from '../RichFooter';
@@ -11,7 +11,7 @@ import './index.sass';
 const GlobalStyle = createGlobalStyle`
   body {
     background-size: 400% 400%;
-    background-color: ${({theme}) => theme.colors.$bg};
+    background-color: ${({ theme }) => theme.colors.$bg};
     padding: 0;
     margin: 0;
     font-size: 16px;
@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const TemplateWrapper = ({children}) => (
+const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <>
       <GlobalStyle />
@@ -34,7 +34,6 @@ const TemplateWrapper = ({children}) => (
       </Helmet>
       <Header />
       {children}
-
       <Footer />
     </>
   </ThemeProvider>

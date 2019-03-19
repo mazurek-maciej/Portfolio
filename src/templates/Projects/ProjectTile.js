@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import posed from 'react-pose';
 import Img from 'gatsby-image';
@@ -64,5 +65,12 @@ const ProjectTile = ({link, description, heading, img}) => (
     <Description desc>{description}</Description>
   </TemplateContainer>
 );
+
+ProjectTile.propTypes = {
+  link: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  heading: PropTypes.string.isRequired,
+  img: PropTypes.object.isRequired,
+}
 
 export default ProjectTile;

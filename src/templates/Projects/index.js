@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import Subheading from '../../components/Subheading';
 import {media} from '../../utils/media';
@@ -21,7 +22,7 @@ const MainContentWraper = styled.section`
     align-self: flex-start;
   }
 `;
-const ProjectsWraper = styled.div`
+const ProjectsWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   position: relative;
@@ -41,7 +42,7 @@ const Projects = ({nutrikonImg, tastyImg}) => (
     <Subheading underline technologies projectsTitle>
       Projects
     </Subheading>
-    <ProjectsWraper>
+    <ProjectsWrapper>
       <ProjectTile
         link="http://nutrikon.pl/"
         description={NutrikonDescription}
@@ -54,7 +55,13 @@ const Projects = ({nutrikonImg, tastyImg}) => (
         heading="Tasty"
         img={tastyImg}
       />
-    </ProjectsWraper>
+    </ProjectsWrapper>
   </MainContentWraper>
 );
+
+Projects.propTypes = {
+  nutrikonImg: PropTypes.object,
+  tastyImg: PropTypes.object,
+}
+
 export default Projects;
