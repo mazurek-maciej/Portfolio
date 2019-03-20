@@ -10,16 +10,24 @@ import { media } from '../../utils/media';
 
 const PosedTemplate = posed.div({
   hoverable: true,
+  enter: {
+    opacity: 1,
+    y: 0,
+  },
+  exit: {
+    opacity: 0,
+    y: 25,
+  },
   init: {
     y: 0,
-    boxShadow: '0px 4px 15px hsla(210, 20%, 10%, 0.6)',
+    boxShadow: '0px 0px 0px rgba(0,0,0,0.1)',
     transition: {
       all: { ease: 'easeInOut', duration: 500 },
     },
   },
   hover: {
     y: '-1px',
-    boxShadow: '0px 4px 15px hsla(210, 20%, 10%, 0.8)',
+    boxShadow: '0px 5px 10px rgba(0,0,0,0.3)',
     transition: {
       all: { ease: 'easeInOut', duration: 500 },
     },
@@ -32,10 +40,8 @@ const TemplateContainer = styled(PosedTemplate)`
   border-radius: 10px;
   margin-bottom: 16px;
   background-color: ${({ theme }) => theme.colors.$primary};
-  box-shadow: 0 4px 15px hsla(210, 20%, 10%, 0.6);
   position: relative;
   overflow: hidden;
-
   ${media.phone`
     max-width: 300px;
     width: 100%;
