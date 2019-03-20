@@ -50,6 +50,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.5.1",
+    "gatsby-plugin-eslint": "^2.0.4",
     "gatsby-plugin-sharp": "^2.0.29",
     "gatsby-source-filesystem": "^2.0.27",
     "gatsby-transformer-sharp": "^2.1.17",

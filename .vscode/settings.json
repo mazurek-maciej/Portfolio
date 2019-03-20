@@ -3,5 +3,5 @@
         "vue",
         "html"
       ],
-      "eslint.enable": false
+      "eslint.enable": true
 }

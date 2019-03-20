@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 import posed from 'react-pose';
-import Intro from './HelloIntro'
-import ImagePlaceholder from './ImagePlaceholder'
+import Intro from './HelloIntro';
+import ImagePlaceholder from './ImagePlaceholder';
 import Lpt from '../../images/Laptopv3.svg';
 
 const AnimationMain = posed.section({
@@ -21,6 +21,7 @@ const AnimationMain = posed.section({
 
 const MainWraper = styled(AnimationMain)`
   display: flex;
+  opacity: 0;
   position: relative;
   flex-direction: column;
   flex-wrap: wrap;
@@ -40,13 +41,17 @@ const Main = () => {
   useEffect(() => {
     setTimeout(() => {
       renderVisible();
-    }, 500);;
+    }, 500);
   });
 
   return (
-    <MainWraper name="main" initialPose='hidden' pose={visible ? 'visible' : 'hidden'}>
-      <Intro/>
-      <ImagePlaceholder image={Lpt}/>
+    <MainWraper
+      name="main"
+      initialPose="hidden"
+      pose={visible ? 'visible' : 'hidden'}
+    >
+      <Intro />
+      <ImagePlaceholder image={Lpt} />
     </MainWraper>
   );
 };
