@@ -6,7 +6,7 @@ import Img from 'gatsby-image';
 
 import Subheading from '../../components/Subheading';
 import Description from '../../components/Description';
-import {media} from '../../utils/media';
+import { media } from '../../utils/media';
 
 const PosedTemplate = posed.div({
   hoverable: true,
@@ -14,14 +14,14 @@ const PosedTemplate = posed.div({
     y: 0,
     boxShadow: '0px 4px 15px hsla(210, 20%, 10%, 0.6)',
     transition: {
-      all: {ease: 'easeInOut', duration: 500},
+      all: { ease: 'easeInOut', duration: 500 },
     },
   },
   hover: {
     y: '-1px',
     boxShadow: '0px 4px 15px hsla(210, 20%, 10%, 0.8)',
     transition: {
-      all: {ease: 'easeInOut', duration: 500},
+      all: { ease: 'easeInOut', duration: 500 },
     },
   },
 });
@@ -31,10 +31,11 @@ const TemplateContainer = styled(PosedTemplate)`
   height: 400px;
   border-radius: 10px;
   margin-bottom: 16px;
-  background-color: ${({theme}) => theme.colors.$primary};
+  background-color: ${({ theme }) => theme.colors.$primary};
   box-shadow: 0 4px 15px hsla(210, 20%, 10%, 0.6);
   position: relative;
   overflow: hidden;
+
   ${media.phone`
     max-width: 300px;
     width: 100%;
@@ -54,7 +55,7 @@ const ImgContainer = styled(Img)`
   `}
 `;
 
-const ProjectTile = ({link, description, heading, img}) => (
+const ProjectTile = ({ link, description, heading, img }) => (
   <TemplateContainer>
     <a target="_blank" rel="noopener noreferrer" href={link}>
       <ImgContainer fluid={img.fluid} nutrikon />
@@ -71,6 +72,6 @@ ProjectTile.propTypes = {
   description: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   img: PropTypes.object.isRequired,
-}
+};
 
 export default ProjectTile;

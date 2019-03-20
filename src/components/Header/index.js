@@ -22,11 +22,11 @@ const StyledHeader = styled.nav`
   justify-content: center;
   width: 100vw;
   height: 56px;
-  background-color: ${({theme}) => theme.colors.$primary};
+  background-color: ${({ theme }) => theme.colors.$primary};
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 `;
 const CenterWraper = styled.div`
-  max-width: 900px;
+  max-width: 1120px;
   width: 100%;
   display: flex;
 `;
@@ -38,17 +38,21 @@ class Header extends React.Component {
       active: '',
     };
   }
+
   componentDidMount() {}
+
   handleClick = () => {
     if (this.state.active === 'active') {
-      this.setState({active: ''});
+      this.setState({ active: '' });
     }
   };
+
   displayMobileNav = () => {
-    this.setState({active: 'active'});
+    this.setState({ active: 'active' });
   };
+
   render() {
-    const {active} = this.state;
+    const { active } = this.state;
     return (
       <>
         <HeaderWraper>

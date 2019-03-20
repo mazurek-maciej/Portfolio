@@ -1,25 +1,18 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled, {keyframes} from 'styled-components'
+import styled, { keyframes } from 'styled-components';
 import { media } from '../../utils/media';
 
 const Bg = styled.div`
   position: absolute;
-  align-self: flex-end;
+  right: 15%;
+  top: 25%;
   z-index: -1;
-  width: 800px;
-  height: 800px;
-  top: 20%;
   ${media.tablet`
-    width: 560px;
-    height: 560px;
-    top: 40%;
+    top: 35%;
   `};
   ${media.phone`
-    width: 100%;
-    height: 380px;
-    background-position: center;
-    top: 38%;
+    top: 35%;
   `}
 `;
 const FloatingLpt = keyframes`
@@ -32,25 +25,11 @@ const FloatingLpt = keyframes`
 `;
 const Image = styled.img`
   animation: ${FloatingLpt} 4s alternate ease-in-out infinite;
-  border-radius: 30%;
-  width: 600px;
-  height: 600px;
-  ${media.tablet`
-    width: 560px;
-    height: 560px;
-  `};
-  ${media.phone`
-    width: 100%;
-    height: 380px;
-  `}
 `;
-const ImagePlaceholder = ({image}) => {
-  return (
-    <Bg>
-      <Image src={image} alt="lpt" />
-    </Bg>
-  )
-}
+const ImagePlaceholder = ({ image }) => (
+  <Bg>
+    <Image src={image} alt="lpt" />
+  </Bg>
+);
 
-
-export default ImagePlaceholder
+export default ImagePlaceholder;

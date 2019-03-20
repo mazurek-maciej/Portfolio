@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import Subheading from '../../components/Subheading';
-import {media} from '../../utils/media';
+import { media } from '../../utils/media';
 import ProjectTile from './ProjectTile';
-import {NutrikonDescription, TastyDescription} from './ProjectsDescriptions';
+import { NutrikonDescription, TastyDescription } from './ProjectsDescriptions';
 
 const MainContentWraper = styled.section`
   display: flex;
@@ -30,6 +30,12 @@ const ProjectsWrapper = styled.div`
   max-width: 900px;
   width: 100%;
   margin-top: 16px;
+  ${media.tablet`
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  `}
   ${media.phone`
     flex-direction: column;
     height: 100vh;
@@ -37,7 +43,7 @@ const ProjectsWrapper = styled.div`
   `}
 `;
 
-const Projects = ({nutrikonImg, tastyImg}) => (
+const Projects = ({ nutrikonImg, tastyImg }) => (
   <MainContentWraper name="projects">
     <Subheading underline technologies projectsTitle>
       Projects
@@ -62,6 +68,6 @@ const Projects = ({nutrikonImg, tastyImg}) => (
 Projects.propTypes = {
   nutrikonImg: PropTypes.object,
   tastyImg: PropTypes.object,
-}
+};
 
 export default Projects;

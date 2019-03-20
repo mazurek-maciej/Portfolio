@@ -1,5 +1,5 @@
-import styled, {keyframes, css} from 'styled-components';
-import {media} from '../utils/media';
+import styled, { keyframes, css } from 'styled-components';
+import { media } from '../utils/media';
 
 const HeadingAnim = keyframes`
   0% {
@@ -15,17 +15,19 @@ const AfterAndBefore = css`
   font-family: Fire Code;
   top: 0;
   position: absolute;
-  color: ${({theme}) => theme.colors.$testPrimary};
+  color: ${({ theme }) => theme.colors.$testPrimary};
 `;
 
 const Heading = styled.h1`
   font-size: 48px;
+  font-weight: ${({ theme }) => theme.font.superbold};
   position: relative;
   text-align: center;
-  margin-left: 5%;
+  ${media.tablet`
+    font-size: 36px;
+  `}
   ${media.phone`
-    font-weight: ${({theme}) => theme.font.superbold};
-    font-size: 1.8rem;
+    font-size: 24px;
     margin-left: 0;
     margin-bottom: 1rem;
   `};

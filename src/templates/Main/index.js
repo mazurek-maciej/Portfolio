@@ -1,17 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-scroll';
 import posed from 'react-pose';
 import Intro from './HelloIntro';
 import ImagePlaceholder from './ImagePlaceholder';
 import Lpt from '../../images/Laptopv3.svg';
 
-const AnimationMain = posed.section({
+const PosedScroll = posed.a({
+  hoverable: true,
+  init: {
+    y: 0,
+    ease: 'easeIn',
+    transition: { type: 'spring' },
+  },
+  hover: {
+    y: 10,
+  },
+});
+const PosedMain = posed.section({
   visible: {
     opacity: 1,
     x: 0,
-    delay: 300,
-    ease: 'easeIn',
-    transition: { type: 'spring' },
+    transition: { duration: 600 },
   },
   hidden: {
     x: -50,
@@ -19,16 +29,23 @@ const AnimationMain = posed.section({
   },
 });
 
-const MainWraper = styled(AnimationMain)`
+const MainWraper = styled(PosedMain)`
   display: flex;
   opacity: 0;
   position: relative;
   flex-direction: column;
-  flex-wrap: wrap;
   height: 100vh;
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
+`;
+
+const ScrollTo = styled(PosedScroll)`
+  align-self: center;
+  color: ${({ theme }) => theme.colors.$testPrimary};
+  width: 2rem;
+  text-align: center;
+  font-size: 2rem;
 `;
 
 const Main = () => {
@@ -41,7 +58,7 @@ const Main = () => {
   useEffect(() => {
     setTimeout(() => {
       renderVisible();
-    }, 500);
+    }, 200);
   });
 
   return (
@@ -52,6 +69,11 @@ const Main = () => {
     >
       <Intro />
       <ImagePlaceholder image={Lpt} />
+      <ScrollTo>
+        <Link to="about" spy smooth duration={500}>
+          <i className="fas fa-chevron-down" />
+        </Link>
+      </ScrollTo>
     </MainWraper>
   );
 };
