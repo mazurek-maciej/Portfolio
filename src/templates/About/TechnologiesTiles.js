@@ -15,60 +15,16 @@ const IconWraperAnimation = keyframes`
     100%{background-position:93% 0%}
 `;
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  ${media.tablet`
-    display: flex;
-    justify-content: center;
-  `};
-  ${media.phone`
-    display: flex;
-    justify-content: center;
-  `}
-`;
-
 const TechWraper = styled.div`
-  position: relative;
-  height: 260px;
+  width: 100%;
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 1rem;
-  grid-template-columns: repeat(4, 240px);
-  padding-bottom: 2rem;
-  ${media.tablet`
-  grid-template-columns: repeat(2, 180px);
-    grid-template-rows: repeat(2, 120px);
-    margin-top: 1rem;
-    height: 250px;
-    padding-bottom: 0;
-  `};
-  ${media.phone`
-    grid-template-columns: repeat(2, 180px);
-    grid-template-rows: repeat(2, 120px);
-    margin-top: 1rem;
-    height: 250px;
-    padding-bottom: 0;
-  `};
 `;
-const ImgContainer = styled.div`
-  align-self: stretch;
-  margin: 32px;
-  flex: 1;
-  background-image: url(${props =>
-    props.js
-      ? `${jsIcon}`
-      : props.react
-      ? `${reactIcon}`
-      : props.gatsby
-      ? `${gatsbyIcon}`
-      : props.styledIc
-      ? `${styledIcon}`
-      : null});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  ${media.phone` margin: 8px`}
+const ImgContainer = styled.img`
+  padding: 1rem;
+  height: 200px;
+  width: 160px;
 `;
 
 const IconWraper = styled.div`
@@ -85,25 +41,23 @@ const IconWraper = styled.div`
 `;
 
 const TechnologiesTiles = () => (
-  <Container>
-    <TechWraper>
-      <IconWraper>
-        <ImgContainer js />
-      </IconWraper>
+  <TechWraper>
+    <IconWraper>
+      <ImgContainer src={jsIcon} />
+    </IconWraper>
 
-      <IconWraper>
-        <ImgContainer react />
-      </IconWraper>
+    <IconWraper>
+      <ImgContainer src={reactIcon} />
+    </IconWraper>
 
-      <IconWraper>
-        <ImgContainer gatsby />
-      </IconWraper>
+    <IconWraper>
+      <ImgContainer src={gatsbyIcon} />
+    </IconWraper>
 
-      <IconWraper>
-        <ImgContainer styledIc />
-      </IconWraper>
-    </TechWraper>
-  </Container>
+    <IconWraper>
+      <ImgContainer src={styledIcon} />
+    </IconWraper>
+  </TechWraper>
 );
 
 export default TechnologiesTiles;

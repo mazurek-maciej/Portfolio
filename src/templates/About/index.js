@@ -11,7 +11,7 @@ const AboutWraper = styled.section`
   flex-direction: column;
   align-items: flex-start;
   height: 100%;
-  max-width: 1120px;
+  max-width: 900px;
   width: 100%;
   margin: 0 auto;
   ${media.phone`
@@ -32,17 +32,34 @@ class About extends Component {
     return (
       <AboutWraper name="about">
         <TextWraper>
-          {edges.reverse().map((content, index) => (
-            <React.Fragment key={index}>
-              <Subheading about underline>
-                {content.node.frontmatter.title}
-              </Subheading>
-              <div
-                paddingBtm
-                dangerouslySetInnerHTML={{ __html: content.node.html }}
-              />
-            </React.Fragment>
-          ))}
+          <React.Fragment>
+            <Subheading about underline>
+              About
+            </Subheading>
+            <div>
+              My name is Maciej Mazurek and since July 2018 I have started my
+              journey to become front-end developer.
+              <br /> Systematic work, pursuing to achive goal and willing to
+              learn new technologies are my main assets.
+              <br /> Currently I'm in love with the React, so most of my time is
+              dedicated to this framework.
+            </div>
+          </React.Fragment>
+        </TextWraper>
+        <TextWraper>
+          <React.Fragment>
+            <Subheading about underline>
+              Technologies
+            </Subheading>
+            <div>
+              Below are technologies that I'm currently mostly delve into.
+              <br /> In the next stage of my learning journey I want to get
+              better knowledge in: Node.js, Webpack, Express, MongoDB, Jest and
+              many more that will appear.
+              <br /> In the meantime I'm also learning how to create beautiful
+              UI designs. For mockups and graphics I'm using Sketch.
+            </div>
+          </React.Fragment>
         </TextWraper>
         <TechnologiesTiles />
       </AboutWraper>

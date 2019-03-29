@@ -35,7 +35,7 @@ const MainWraper = styled(PosedMain)`
   position: relative;
   flex-direction: column;
   height: 100vh;
-  max-width: 1120px;
+  max-width: 900px;
   width: 100%;
   margin: 0 auto;
 `;

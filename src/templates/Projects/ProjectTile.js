@@ -20,14 +20,14 @@ const PosedTemplate = posed.div({
   },
   init: {
     y: 0,
-    boxShadow: '0px 0px 0px rgba(0,0,0,0.1)',
+    boxShadow: '0px 2px 10px rgba(0,0,0,0.3)',
     transition: {
       all: { ease: 'easeInOut', duration: 500 },
     },
   },
   hover: {
     y: '-1px',
-    boxShadow: '0px 5px 10px rgba(0,0,0,0.3)',
+    boxShadow: '0px 5px 14px rgba(0,0,0,0.4)',
     transition: {
       all: { ease: 'easeInOut', duration: 500 },
     },

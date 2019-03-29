@@ -26,7 +26,7 @@ const StyledHeader = styled.nav`
   box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 `;
 const CenterWraper = styled.div`
-  max-width: 1120px;
+  max-width: 900px;
   width: 100%;
   display: flex;
 `;

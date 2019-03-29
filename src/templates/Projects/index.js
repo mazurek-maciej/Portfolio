@@ -12,7 +12,7 @@ const MainContentWraper = styled.section`
   flex-direction: column;
   align-items: center;
   height: 100%;
-  max-width: 1120px;
+  max-width: 900px;
   margin: 0 auto;
   position: relative;
   ${media.phone`
