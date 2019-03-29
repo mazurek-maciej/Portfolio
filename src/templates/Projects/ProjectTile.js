@@ -34,11 +34,9 @@ const PosedTemplate = posed.div({
   },
 });
 const TemplateContainer = styled(PosedTemplate)`
-  max-width: 380px;
-  width: 100%;
-  height: 400px;
+  justify-self: center;
   border-radius: 10px;
-  margin-bottom: 16px;
+  margin: 1rem;
   background-color: ${({ theme }) => theme.colors.$primary};
   position: relative;
   overflow: hidden;

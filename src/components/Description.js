@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import {media} from '../utils/media';
+import { media } from '../utils/media';
 
 const Description = styled.p`
-  font-weight: ${({theme}) => theme.font.regular};
+  font-weight: ${({ theme }) => theme.font.regular};
   color: ${props =>
     props.projects
       ? 'hsl(203, 80%, 70%)'
@@ -11,7 +11,7 @@ const Description = styled.p`
       : null};
   font-size: 1rem;
   margin: 0;
-  margin-left: ${props => (props.projects || props.desc ? '16px' : '0')};
+  padding: ${props => (props.desc ? '16px' : '0')};
   ${media.phone`
     font-size: .8rem;
   `}

@@ -11,7 +11,7 @@ const MainContentWraper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 100vh;
   max-width: 900px;
   margin: 0 auto;
   position: relative;
@@ -23,24 +23,10 @@ const MainContentWraper = styled.section`
   }
 `;
 const ProjectsWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
-  position: relative;
-  height: 60vh;
-  max-width: 900px;
   width: 100%;
-  margin-top: 16px;
-  ${media.tablet`
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-  `}
-  ${media.phone`
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-  `}
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-gap: 2rem;
 `;
 
 const Projects = ({ nutrikonImg, tastyImg }) => (
