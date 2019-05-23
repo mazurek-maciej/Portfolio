@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Link} from 'react-scroll';
+import { Link } from 'react-scroll';
 import maciekLogo from '../../images/maciek_logo.svg';
 
 const StyledFooter = styled.footer`
@@ -8,8 +8,8 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   align-items: center;
   height: 30vh;
-  background-color: ${({theme}) => theme.colors.$primary};
-  color: ${({theme}) => theme.colors.$f};
+  background-color: ${({ theme }) => theme.colors.$primary};
+  color: ${({ theme }) => theme.colors.$f};
 `;
 const LinksWraper = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ const RightContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
   a {
-    color: ${({theme}) => theme.colors.$f};
+    color: ${({ theme }) => theme.colors.$f};
   }
 `;
 const BottomContainer = styled.div`
@@ -55,8 +55,7 @@ const MLogo = styled.img`
   width: 48px;
 `;
 
-const Footer = () => {
-  return (
+const Footer = () => (
     <StyledFooter name="footer">
       <LinksWraper>
         <LeftContainer>
@@ -100,6 +99,5 @@ const Footer = () => {
       <BottomContainer>maciej.mazurek.prv@gmail.com</BottomContainer>
     </StyledFooter>
   );
-};
 
 export default Footer;

@@ -10,7 +10,7 @@ const AboutWraper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100vh;
+  height: 60vh;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
@@ -24,8 +24,8 @@ class About extends Component {
     return (
       <AboutWraper name="about">
         <AboutMe />
-        <Technolgies />
-        <TechnologiesTiles />
+        {/* <Technolgies /> */}
+        {/* <TechnologiesTiles /> */}
       </AboutWraper>
     );
   }

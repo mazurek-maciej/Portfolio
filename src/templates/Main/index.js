@@ -47,6 +47,16 @@ const ScrollTo = styled(PosedScroll)`
   text-align: center;
   font-size: 2rem;
 `;
+const Divider = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 800px;
+  background: ${({ theme }) => theme.colors.$grayBg};
+  z-index: -2;
+  bottom: 0;
+  -webkit-clip-path: polygon(0 50%, 100% 35%, 100% 70%, 0% 100%);
+  clip-path: polygon(0 50%, 100% 0%, 100% 50%, 0% 100%);
+`;
 
 const Main = () => {
   const [visible, setVisible] = useState(0);
@@ -62,19 +72,17 @@ const Main = () => {
   });
 
   return (
-    <MainWraper
-      name="main"
-      initialPose="hidden"
-      pose={visible ? 'visible' : 'hidden'}
-    >
-      <Intro />
-      <ImagePlaceholder image={Lpt} />
-      <ScrollTo>
-        <Link to="about" spy smooth duration={500}>
-          <i className="fas fa-chevron-down" />
-        </Link>
-      </ScrollTo>
-    </MainWraper>
+    <React.Fragment>
+      <MainWraper
+        name="main"
+        initialPose="hidden"
+        pose={visible ? 'visible' : 'hidden'}
+      >
+        <Intro />
+        <ImagePlaceholder image={Lpt} />
+      </MainWraper>
+      <Divider />
+    </React.Fragment>
   );
 };
 export default Main;

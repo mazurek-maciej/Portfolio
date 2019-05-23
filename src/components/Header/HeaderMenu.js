@@ -45,7 +45,10 @@ const PosedLink = posed.li({
 });
 
 const MenuLink = styled(PosedLink)`
-  color: ${({ theme }) => theme.colors.$f};
+  color: ${props =>
+    props.position > 50
+      ? ({ theme }) => theme.colors.$f
+      : ({ theme }) => theme.colors.$h};
   z-index: 10;
   margin-left: 16px;
   height: 100%;
@@ -60,7 +63,7 @@ const MenuLink = styled(PosedLink)`
     display: none;
   `}
   :hover {
-    border-bottom: 2px solid ${({ theme }) => theme.colors.$f};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.$testPrimary};
   }
 `;
 
@@ -96,29 +99,29 @@ const MLogo = styled.img`
   margin-left: 1rem;
 `;
 
-const HeaderMenu = ({ onClick, active }) => (
+const HeaderMenu = ({ onClick, active, position }) => (
   <LeftAndRightWraper>
     <LeftWraper>
       <MLogo src={maciekLogo} />
     </LeftWraper>
     <RightWraper initialPose="closed" pose="open">
       <PoseGroup>
-        <MenuLink key="1" initialPose="closed" pose="open">
+        <MenuLink position={position} key="1" initialPose="closed" pose="open">
           <Link to="main" spy smooth duration={500}>
             Home
           </Link>
         </MenuLink>
-        <MenuLink key="2" initialPose="closed" pose="open">
+        <MenuLink position={position} key="2" initialPose="closed" pose="open">
           <Link to="about" spy smooth duration={500}>
             About
           </Link>
         </MenuLink>
-        <MenuLink key="3" initialPose="closed" pose="open">
+        <MenuLink position={position} key="3" initialPose="closed" pose="open">
           <Link to="projects" spy smooth duration={500}>
             Projects
           </Link>
         </MenuLink>
-        <MenuLink key="4" initialPose="closed" pose="open">
+        <MenuLink position={position} key="4" initialPose="closed" pose="open">
           <Link to="footer" spy smooth duration={500}>
             Contact
           </Link>

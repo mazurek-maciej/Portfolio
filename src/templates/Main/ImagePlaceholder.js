@@ -5,7 +5,7 @@ import { media } from '../../utils/media';
 
 const Bg = styled.div`
   position: absolute;
-  right: 15%;
+  right: 0%;
   top: 25%;
   z-index: -1;
   ${media.tablet`

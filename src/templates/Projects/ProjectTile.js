@@ -7,6 +7,7 @@ import Img from 'gatsby-image';
 import Subheading from '../../components/Subheading';
 import Description from '../../components/Description';
 import { media } from '../../utils/media';
+import GitHubLogo from '../../images/gh_logo.svg';
 
 const PosedTemplate = posed.div({
   hoverable: true,
@@ -34,10 +35,12 @@ const PosedTemplate = posed.div({
   },
 });
 const TemplateContainer = styled(PosedTemplate)`
+  display: flex;
+  flex-direction: column;
   justify-self: center;
   border-radius: 10px;
   margin: 1rem;
-  background-color: ${({ theme }) => theme.colors.$primary};
+  background-color: ${({ theme }) => theme.colors.$grayBg};
   position: relative;
   overflow: hidden;
   ${media.phone`
@@ -49,25 +52,49 @@ const TemplateContainer = styled(PosedTemplate)`
 
 const ImgContainer = styled(Img)`
   width: 100%;
-  height: 200px;
+  height: 100%;
   background-color: hsl(210, 0%, 20%);
-  margin-bottom: 8px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   ${media.phone`
     height: 160px;
   `}
 `;
+const TileTopContainer = styled.div`
+  flex: 1;
+`;
+const TileBottomContainer = styled.div`
+  flex: 3;
+`;
+const TileTopDoubleBox = styled.div`
+  display: flex;
+  align-items: flex-end;
+`;
+const GitHubImg = styled.img`
+  flex: 1;
+  width: 32px;
+  height: 32px;
+  margin: 0 4px;
+`;
 
 const ProjectTile = ({ link, description, heading, img }) => (
   <TemplateContainer>
-    <a target="_blank" rel="noopener noreferrer" href={link}>
-      <ImgContainer fluid={img.fluid} nutrikon />
-    </a>
-    <Subheading projects>
-      <span>{heading}</span>
-    </Subheading>
-    <Description desc>{description}</Description>
+    <TileTopContainer>
+      <Subheading projects>
+        <span>{heading}</span>
+      </Subheading>
+      <TileTopDoubleBox>
+        <Description style={{ flex: '1' }} desc>
+          {description}
+        </Description>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com">
+          <GitHubImg src={GitHubLogo} />
+        </a>
+      </TileTopDoubleBox>
+    </TileTopContainer>
+    <TileBottomContainer>
+      <a target="_blank" rel="noopener noreferrer" href={link}>
+        <ImgContainer fluid={img.fluid} nutrikon />
+      </a>
+    </TileBottomContainer>
   </TemplateContainer>
 );
 

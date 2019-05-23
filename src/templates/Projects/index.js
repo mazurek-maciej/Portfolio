@@ -11,7 +11,7 @@ const MainContentWraper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 60vh;
   max-width: 900px;
   margin: 0 auto;
   position: relative;
