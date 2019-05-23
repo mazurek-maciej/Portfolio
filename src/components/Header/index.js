@@ -43,7 +43,7 @@ class Header extends React.Component {
     super(props);
     this.state = {
       active: '',
-      windowPosition: window.pageYOffset,
+      windowPosition: 0,
       menuVisible: false,
     };
   }
