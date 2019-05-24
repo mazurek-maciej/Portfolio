@@ -63,7 +63,8 @@ const MenuLink = styled(PosedLink)`
     display: none;
   `}
   :hover {
-    border-bottom: 2px solid ${({ theme }) => theme.colors.$testPrimary};
+    border-bottom: ${props =>
+      props.position > 50 ? `2px solid #EDE8E8` : `2px solid #376D8C`};
   }
 `;
 
@@ -77,17 +78,12 @@ const MenuButton = styled.a`
   `}
 `;
 
-const PosedMenuIcon = posed(Menu)({
-  visible: {
-    opacity: 1,
-  },
-  hidden: {
-    opacity: 0,
-  },
-});
-const MenuIcon = styled(PosedMenuIcon)`
+const MenuIcon = styled(Menu)`
   display: ${props => (props.active ? 'none' : 'block')};
-  color: ${({ theme }) => theme.colors.$f};
+  color: ${props =>
+    props.position > 50
+      ? ({ theme }) => theme.colors.$f
+      : ({ theme }) => theme.colors.$bgGray};
   width: 32px;
   margin-right: 16px;
   :active {
@@ -128,7 +124,11 @@ const HeaderMenu = ({ onClick, active, position }) => (
         </MenuLink>
       </PoseGroup>
       <MenuButton onClick={onClick}>
-        <MenuIcon active={active} pose={active ? 'hidden' : 'visible'} />
+        <MenuIcon
+          position={position}
+          active={active}
+          pose={active ? 'hidden' : 'visible'}
+        />
       </MenuButton>
     </RightWraper>
   </LeftAndRightWraper>

@@ -29,10 +29,12 @@ const HeadingWraper = styled.div`
   ${media.tablet`
     justify-content: center;
     padding-bottom: 50%;
+    margin-left: 10%;
   `}
 `;
 const HeadingSmall = styled.p`
   font-size: 16px;
+  margin: 8px 0;
   color: ${({ theme }) => theme.colors.$p};
 `;
 const IntroButton = styled(PosedIntroButton)`
@@ -56,6 +58,9 @@ const IntroButton = styled(PosedIntroButton)`
     left: -4px;
     top: 4px;
   }
+  ${media.tablet`
+    font-size: 18px;
+  `}
 `;
 
 const HelloIntro = () => (
@@ -66,8 +71,8 @@ const HelloIntro = () => (
         <HeadingSmall>Below you can find information about me</HeadingSmall>
         <div>
           <IntroButton pose="init">
-            <Link to="about" spy smooth duration={500}>
-              Find out more!
+            <Link to="about" offset={-60} spy smooth duration={500}>
+              Find out!
             </Link>
           </IntroButton>
         </div>

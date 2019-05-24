@@ -75,7 +75,7 @@ const GitHubImg = styled.img`
   margin: 0 4px;
 `;
 
-const ProjectTile = ({ link, description, heading, img }) => (
+const ProjectTile = ({ link, ghLink, description, heading, img }) => (
   <TemplateContainer>
     <TileTopContainer>
       <Subheading projects>
@@ -85,7 +85,7 @@ const ProjectTile = ({ link, description, heading, img }) => (
         <Description style={{ flex: '1' }} desc>
           {description}
         </Description>
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com">
+        <a target="_blank" rel="noopener noreferrer" href={ghLink}>
           <GitHubImg src={GitHubLogo} />
         </a>
       </TileTopDoubleBox>

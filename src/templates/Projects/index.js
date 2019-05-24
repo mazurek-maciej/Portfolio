@@ -37,12 +37,14 @@ const Projects = ({ nutrikonImg, tastyImg }) => (
     <ProjectsWrapper>
       <ProjectTile
         link="http://nutrikon.pl/"
+        ghLink="https://github.com/mazurek-maciej/Nutrikon-Website"
         description={NutrikonDescription}
         heading="Nutrikon"
         img={nutrikonImg}
       />
       <ProjectTile
         link="https://cranky-raman-166572.netlify.com/"
+        ghLink="https://github.com/mazurek-maciej/Tasty-PO"
         description={TastyDescription}
         heading="Tasty"
         img={tastyImg}

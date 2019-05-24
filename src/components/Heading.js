@@ -26,9 +26,8 @@ const Heading = styled.h1`
     font-size: 36px;
   `}
   ${media.phone`
-    font-size: 24px;
+    font-size: 32px;
     margin-left: 0;
-    margin-bottom: 1rem;
   `};
   }
 `;

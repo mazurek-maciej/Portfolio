@@ -21,7 +21,7 @@ const AboutMeImageContainer = styled.div`
   flex: 1;
   padding: 2rem;
   max-width: 300px;
-  min-width: 200px;
+  min-width: 250px;
   width: 100%;
 `;
 

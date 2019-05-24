@@ -9,6 +9,7 @@ const Bg = styled.div`
   top: 25%;
   z-index: -1;
   ${media.tablet`
+    display: none;
     top: 35%;
   `};
   ${media.phone`

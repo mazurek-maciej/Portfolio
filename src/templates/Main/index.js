@@ -5,6 +5,7 @@ import posed from 'react-pose';
 import Intro from './HelloIntro';
 import ImagePlaceholder from './ImagePlaceholder';
 import Lpt from '../../images/Laptopv3.svg';
+import { media } from '../../utils/media';
 
 const PosedScroll = posed.a({
   hoverable: true,
@@ -54,8 +55,10 @@ const Divider = styled.div`
   background: ${({ theme }) => theme.colors.$grayBg};
   z-index: -2;
   bottom: 0;
-  -webkit-clip-path: polygon(0 50%, 100% 35%, 100% 70%, 0% 100%);
   clip-path: polygon(0 50%, 100% 0%, 100% 50%, 0% 100%);
+  ${media.phone`
+    clip-path: polygon(0 70%, 100% 50%, 100% 80%, 0% 100%);
+  `}
 `;
 
 const Main = () => {
