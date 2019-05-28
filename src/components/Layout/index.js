@@ -5,7 +5,6 @@ import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { theme } from '../../utils/theme';
 import Header from '../Header';
 import Footer from '../Footer';
-import RichFooter from '../RichFooter';
 import './index.sass';
 
 const GlobalStyle = createGlobalStyle`
@@ -45,8 +44,8 @@ const TemplateWrapper = ({ children }) => (
   </ThemeProvider>
 );
 
-// TemplateWrapper.propTypes = {
-//   children: PropTypes.func
-// }
+TemplateWrapper.propTypes = {
+  children: PropTypes.object.isRequired,
+};
 
 export default TemplateWrapper;
