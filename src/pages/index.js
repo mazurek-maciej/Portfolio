@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Main from '../templates/Main';
 import About from '../templates/About';
@@ -16,6 +18,10 @@ export default class Index extends React.Component {
     );
   }
 }
+
+Index.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export const query = graphql`
   query Laptop {

@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import posed from 'react-pose';
-import Img from 'gatsby-image';
-
-import Subheading from '../../components/Subheading';
-import Description from '../../components/Description';
-import { media } from '../../utils/media';
-import GitHubLogo from '../../images/gh_logo.svg';
+import TopContainer from './TopContainer';
+import BottomContainer from './BottomContainer';
+import { media } from '../../../utils/media';
 
 const PosedTemplate = posed.div({
   hoverable: true,
@@ -50,51 +47,10 @@ const TemplateContainer = styled(PosedTemplate)`
   `}
 `;
 
-const ImgContainer = styled(Img)`
-  width: 100%;
-  height: 100%;
-  background-color: hsl(210, 0%, 20%);
-  ${media.phone`
-    height: 160px;
-  `}
-`;
-const TileTopContainer = styled.div`
-  flex: 1;
-`;
-const TileBottomContainer = styled.div`
-  flex: 3;
-`;
-const TileTopDoubleBox = styled.div`
-  display: flex;
-  align-items: flex-end;
-`;
-const GitHubImg = styled.img`
-  flex: 1;
-  width: 32px;
-  height: 32px;
-  margin: 0 4px;
-`;
-
 const ProjectTile = ({ link, ghLink, description, heading, img }) => (
   <TemplateContainer>
-    <TileTopContainer>
-      <Subheading projects>
-        <span>{heading}</span>
-      </Subheading>
-      <TileTopDoubleBox>
-        <Description style={{ flex: '1' }} desc>
-          {description}
-        </Description>
-        <a target="_blank" rel="noopener noreferrer" href={ghLink}>
-          <GitHubImg src={GitHubLogo} />
-        </a>
-      </TileTopDoubleBox>
-    </TileTopContainer>
-    <TileBottomContainer>
-      <a target="_blank" rel="noopener noreferrer" href={link}>
-        <ImgContainer fluid={img.fluid} nutrikon />
-      </a>
-    </TileBottomContainer>
+    <TopContainer heading={heading} description={description} ghLink={ghLink} />
+    <BottomContainer link={link} img={img.fluid} />
   </TemplateContainer>
 );
 
@@ -103,6 +59,7 @@ ProjectTile.propTypes = {
   description: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   img: PropTypes.object.isRequired,
+  ghLink: PropTypes.string.isRequired,
 };
 
 export default ProjectTile;

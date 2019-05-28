@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Subheading from '../../components/Subheading';
+import Subheading from '../../components/Tags/Subheading';
 import { media } from '../../utils/media';
-import ProjectTile from './ProjectTile';
+import ProjectTile from './Tile';
 import { NutrikonDescription, TastyDescription } from './ProjectsDescriptions';
 
 const MainContentWraper = styled.section`

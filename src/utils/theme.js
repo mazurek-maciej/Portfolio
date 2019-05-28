@@ -1,4 +1,5 @@
-import {colors} from './colors.js';
+import { colors } from './colors.js';
+
 export const theme = {
   colors,
   font: {
@@ -6,5 +7,10 @@ export const theme = {
     regular: 400,
     bold: 600,
     superbold: 700,
+  },
+  size: {
+    h1: '48px',
+    h2: '36px',
+    h3: '32px',
   },
 };

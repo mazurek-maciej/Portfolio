@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import TechnologiesTiles from './TechnologiesTiles';
 import AboutMe from './AboutMe';
-import Technolgies from './Technologies';
-
 import { media } from '../../utils/media';
 
 const AboutWraper = styled.section`
@@ -24,8 +21,6 @@ class About extends Component {
     return (
       <AboutWraper name="about">
         <AboutMe />
-        {/* <Technolgies /> */}
-        {/* <TechnologiesTiles /> */}
       </AboutWraper>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import posed from 'react-pose';
 
 const scrollAnimation = keyframes`
@@ -24,16 +24,14 @@ const Scroll = styled.div`
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-top: 10px solid ${({theme}) => theme.colors.$testPrimary};
+  border-top: 10px solid ${({ theme }) => theme.colors.$primary};
 `;
-const ScrollArrows = () => {
-  return (
+const ScrollArrows = () => (
     <>
       <Scroll time="0s" />
       <Scroll time="0.1s" />
       <Scroll time="0.2s" />
     </>
   );
-};
 
 export default ScrollArrows;

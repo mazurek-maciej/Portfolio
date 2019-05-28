@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Subheading from '../../components/Subheading';
+import Subheading from '../../components/Tags/Subheading';
 import me from '../../images/Me.svg';
 
 const TextWraper = styled.div`

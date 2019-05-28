@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import posed from 'react-pose';
 import Button from './MobileNavButton';
@@ -81,4 +82,10 @@ const MobileNavigation = ({ active, handleClick }) => (
     />
   </>
 );
+
+MobileNavigation.propTypes = {
+  active: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+};
+
 export default MobileNavigation;

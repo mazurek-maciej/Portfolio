@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   align-items: center;
   height: 30vh;
-  background-color: ${({ theme }) => theme.colors.$primary};
+  background-color: ${({ theme }) => theme.colors.$secondary};
   color: ${({ theme }) => theme.colors.$f};
 `;
 const LinksWraper = styled.div`
@@ -56,48 +56,48 @@ const MLogo = styled.img`
 `;
 
 const Footer = () => (
-    <StyledFooter name="footer">
-      <LinksWraper>
-        <LeftContainer>
-          <MLogo src={maciekLogo} />
-        </LeftContainer>
-        <CenterContainer>
-          <Link to="main" spy={true} smooth={true} duration={500}>
-            Home
-          </Link>
-          <Link to="about" spy={true} smooth={true} duration={500}>
-            About
-          </Link>
-          <Link to="projects" spy={true} smooth={true} duration={500}>
-            Projects
-          </Link>
-        </CenterContainer>
-        <RightContainer>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="www.linkedin.com/in/maciej-mazurek-087a6011a"
-          >
-            LinkedIn
-          </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/mazurek-maciej"
-          >
-            Github
-          </a>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="mailto: maciej.mazurek.prv@gmail.com"
-          >
-            Mail
-          </a>
-        </RightContainer>
-      </LinksWraper>
-      <BottomContainer>maciej.mazurek.prv@gmail.com</BottomContainer>
-    </StyledFooter>
-  );
+  <StyledFooter name="footer">
+    <LinksWraper>
+      <LeftContainer>
+        <MLogo src={maciekLogo} />
+      </LeftContainer>
+      <CenterContainer>
+        <Link to="main" spy smooth duration={500}>
+          Home
+        </Link>
+        <Link to="about" spy smooth duration={500}>
+          About
+        </Link>
+        <Link to="projects" spy smooth duration={500}>
+          Projects
+        </Link>
+      </CenterContainer>
+      <RightContainer>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="www.linkedin.com/in/maciej-mazurek-087a6011a"
+        >
+          LinkedIn
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/mazurek-maciej"
+        >
+          Github
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="mailto: maciej.mazurek.prv@gmail.com"
+        >
+          Mail
+        </a>
+      </RightContainer>
+    </LinksWraper>
+    <BottomContainer>maciej.mazurek.prv@gmail.com</BottomContainer>
+  </StyledFooter>
+);
 
 export default Footer;

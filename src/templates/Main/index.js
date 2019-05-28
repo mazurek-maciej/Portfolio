@@ -1,23 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { Link } from 'react-scroll';
+import styled from 'styled-components';
 import posed from 'react-pose';
-import Intro from './HelloIntro';
+import HeroText from './HeroText';
 import ImagePlaceholder from './ImagePlaceholder';
-import Lpt from '../../images/Laptopv3.svg';
+import LaptopImage from '../../images/Laptopv3.svg';
 import { media } from '../../utils/media';
 
-const PosedScroll = posed.a({
-  hoverable: true,
-  init: {
-    y: 0,
-    ease: 'easeIn',
-    transition: { type: 'spring' },
-  },
-  hover: {
-    y: 10,
-  },
-});
 const PosedMain = posed.section({
   visible: {
     opacity: 1,
@@ -30,7 +18,7 @@ const PosedMain = posed.section({
   },
 });
 
-const MainWraper = styled(PosedMain)`
+const HeroWrapper = styled(PosedMain)`
   display: flex;
   opacity: 0;
   position: relative;
@@ -41,13 +29,6 @@ const MainWraper = styled(PosedMain)`
   margin: 0 auto;
 `;
 
-const ScrollTo = styled(PosedScroll)`
-  align-self: center;
-  color: ${({ theme }) => theme.colors.$testPrimary};
-  width: 2rem;
-  text-align: center;
-  font-size: 2rem;
-`;
 const Divider = styled.div`
   position: absolute;
   width: 100%;
@@ -76,14 +57,14 @@ const Main = () => {
 
   return (
     <React.Fragment>
-      <MainWraper
+      <HeroWrapper
         name="main"
         initialPose="hidden"
         pose={visible ? 'visible' : 'hidden'}
       >
-        <Intro />
-        <ImagePlaceholder image={Lpt} />
-      </MainWraper>
+        <HeroText />
+        <ImagePlaceholder image={LaptopImage} />
+      </HeroWrapper>
       <Divider />
     </React.Fragment>
   );

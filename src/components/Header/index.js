@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import posed from 'react-pose';
-import MobileNavigation from '../MobileNavigation';
+import MobileNavigation from './MobileNavigation';
 import HeaderMenu from './HeaderMenu';
 
 const PosedHeader = posed.div({
@@ -12,6 +12,10 @@ const PosedHeader = posed.div({
     opacity: 1,
   },
 });
+const HeaderWraper = styled(PosedHeader)`
+  position: fixed;
+  z-index: 1;
+`;
 
 const PosedStyledHeader = posed.nav({
   visible: {
@@ -21,10 +25,6 @@ const PosedStyledHeader = posed.nav({
     backgroundColor: '#343434',
   },
 });
-const HeaderWraper = styled(PosedHeader)`
-  position: fixed;
-  z-index: 1;
-`;
 const StyledHeader = styled(PosedStyledHeader)`
   display: flex;
   z-index: 1;
@@ -32,6 +32,7 @@ const StyledHeader = styled(PosedStyledHeader)`
   width: 100vw;
   height: 56px;
 `;
+
 const CenterWraper = styled.div`
   max-width: 900px;
   width: 100%;
@@ -44,7 +45,7 @@ class Header extends React.Component {
     this.state = {
       active: '',
       windowPosition: 0,
-      menuVisible: false,
+      menuVisible: true,
     };
   }
 
@@ -57,21 +58,20 @@ class Header extends React.Component {
   }
 
   handleClick = () => {
-    if (this.state.active === 'active') {
-      this.setState({ active: '' });
-    }
+    const { active } = this.state;
+    if (active === 'active') this.setState({ active: '' });
   };
 
-  displayMobileNav = () => {
+  handleDisplayMobileNavigation = () => {
     this.setState({ active: 'active' });
   };
 
   handleScroll = () => {
     const currentPos = window.pageYOffset;
     if (currentPos > 50) {
-      this.setState({ menuVisible: true });
-    } else if (currentPos < 50) {
       this.setState({ menuVisible: false });
+    } else if (currentPos < 50) {
+      this.setState({ menuVisible: true });
     }
     this.setState({ windowPosition: currentPos });
   };
@@ -82,13 +82,13 @@ class Header extends React.Component {
       <>
         <HeaderWraper>
           <StyledHeader
-            pose={menuVisible ? 'hidden' : 'visible'}
-            initialPose="hidden"
+            pose={menuVisible ? 'visible' : 'hidden'}
+            initialPose="visible"
           >
             <CenterWraper>
               <HeaderMenu
                 key="hMenu"
-                onClick={this.displayMobileNav}
+                onClick={this.handleDisplayMobileNavigation}
                 active={active}
                 position={windowPosition}
               />
