@@ -43,7 +43,7 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      active: '',
+      activeMN: false,
       windowPosition: 0,
       menuVisible: true,
     };
@@ -58,12 +58,12 @@ class Header extends React.Component {
   }
 
   handleClick = () => {
-    const { active } = this.state;
-    if (active === 'active') this.setState({ active: '' });
+    const { activeMN } = this.state;
+    if (activeMN === true) this.setState({ activeMN: false });
   };
 
   handleDisplayMobileNavigation = () => {
-    this.setState({ active: 'active' });
+    this.setState({ activeMN: true });
   };
 
   handleScroll = () => {
@@ -77,7 +77,7 @@ class Header extends React.Component {
   };
 
   render() {
-    const { active, windowPosition, menuVisible } = this.state;
+    const { activeMN, windowPosition, menuVisible } = this.state;
     return (
       <>
         <HeaderWraper>
@@ -89,13 +89,13 @@ class Header extends React.Component {
               <HeaderMenu
                 key="hMenu"
                 onClick={this.handleDisplayMobileNavigation}
-                active={active}
+                activeMN={activeMN}
                 position={windowPosition}
               />
             </CenterWraper>
           </StyledHeader>
         </HeaderWraper>
-        <MobileNavigation active={active} handleClick={this.handleClick} />
+        <MobileNavigation activeMN={activeMN} handleClick={this.handleClick} />
       </>
     );
   }

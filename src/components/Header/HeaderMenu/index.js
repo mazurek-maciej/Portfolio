@@ -9,16 +9,16 @@ const HeaderMenuWrapper = styled.div`
   width: 100vw;
 `;
 
-const Header = ({ onClick, active, position }) => (
+const Header = ({ onClick, activeMN, position }) => (
   <HeaderMenuWrapper>
     <HeaderLogo />
-    <HeaderMenu position={position} onClick={onClick} active={active} />
+    <HeaderMenu position={position} onClick={onClick} activeMN={activeMN} />
   </HeaderMenuWrapper>
 );
 
 Header.propTypes = {
   onClick: PropTypes.func.isRequired,
-  active: PropTypes.string.isRequired,
+  activeMN: PropTypes.bool.isRequired,
   position: PropTypes.number.isRequired,
 };
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import posed, { PoseGroup } from 'react-pose';
 import styled from 'styled-components';
@@ -73,43 +73,57 @@ const MenuIcon = styled(Menu)`
   }
 `;
 
-const HeaderMenu = ({ position, active, onClick }) => (
-  <MenuLinksWrapper initialPose="closed" pose="open">
-    <PoseGroup>
-      <MenuLink position={position} key="1" initialPose="closed" pose="open">
-        <Link to="main" spy smooth duration={500}>
-          Home
-        </Link>
-      </MenuLink>
-      <MenuLink position={position} key="2" initialPose="closed" pose="open">
-        <Link to="about" spy smooth duration={500}>
-          About
-        </Link>
-      </MenuLink>
-      <MenuLink position={position} key="3" initialPose="closed" pose="open">
-        <Link to="projects" spy smooth duration={500}>
-          Projects
-        </Link>
-      </MenuLink>
-      <MenuLink position={position} key="4" initialPose="closed" pose="open">
-        <Link to="footer" spy smooth duration={500}>
-          Contact
-        </Link>
-      </MenuLink>
-    </PoseGroup>
-    <MenuButton onClick={onClick}>
-      <MenuIcon
-        position={position}
-        active={active}
-        pose={active ? 'hidden' : 'visible'}
-      />
-    </MenuButton>
-  </MenuLinksWrapper>
-);
+const HeaderMenu = ({ position, activeMN, onClick }) => {
+  const [visible, setVisible] = useState(0);
+
+  function renderVisible() {
+    setVisible(1);
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      renderVisible();
+    }, 200);
+  });
+
+  return (
+    <MenuLinksWrapper initialPose="closed" pose={visible ? 'open' : 'closed'}>
+      <PoseGroup>
+        <MenuLink position={position} key="1" initialPose="closed" pose="open">
+          <Link to="main" spy smooth duration={500}>
+            Home
+          </Link>
+        </MenuLink>
+        <MenuLink position={position} key="2" initialPose="closed" pose="open">
+          <Link to="about" spy smooth duration={500}>
+            About
+          </Link>
+        </MenuLink>
+        <MenuLink position={position} key="3" initialPose="closed" pose="open">
+          <Link to="projects" spy smooth duration={500}>
+            Projects
+          </Link>
+        </MenuLink>
+        <MenuLink position={position} key="4" initialPose="closed" pose="open">
+          <Link to="footer" spy smooth duration={500}>
+            Contact
+          </Link>
+        </MenuLink>
+      </PoseGroup>
+      <MenuButton onClick={onClick}>
+        <MenuIcon
+          position={position}
+          active={activeMN}
+          pose={activeMN ? 'hidden' : 'visible'}
+        />
+      </MenuButton>
+    </MenuLinksWrapper>
+  );
+};
 
 HeaderMenu.propTypes = {
   onClick: PropTypes.func.isRequired,
-  active: PropTypes.string.isRequired,
+  activeMN: PropTypes.bool.isRequired,
   position: PropTypes.number.isRequired,
 };
 

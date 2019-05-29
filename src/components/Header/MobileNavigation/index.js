@@ -59,32 +59,32 @@ const BackgroundBlur = styled(PosedBg)`
   background-color: hsla(0, 0%, 0%, 0.5);
 `;
 
-const MobileNavigation = ({ active, handleClick }) => (
+const MobileNavigation = ({ activeMN, handleClick }) => (
   <>
-    <MobileNavWraper active={active} pose={active ? 'visible' : 'hidden'}>
-      <Button to="main" title="Home" pose={active ? 'visible' : 'hidden'} />
-      <Button title="About" to="about" pose={active ? 'visible' : 'hidden'} />
+    <MobileNavWraper active={activeMN} pose={activeMN ? 'visible' : 'hidden'}>
+      <Button to="main" title="Home" pose={activeMN ? 'visible' : 'hidden'} />
+      <Button title="About" to="about" pose={activeMN ? 'visible' : 'hidden'} />
       <Button
         title="Projects"
         to="projects"
-        pose={active ? 'visible' : 'hidden'}
+        pose={activeMN ? 'visible' : 'hidden'}
       />
       <Button
         title="Contact"
         to="projects"
-        pose={active ? 'visible' : 'hidden'}
+        pose={activeMN ? 'visible' : 'hidden'}
       />
     </MobileNavWraper>
     <BackgroundBlur
-      active={active}
+      active={activeMN}
       onClick={handleClick}
-      pose={active ? 'visible' : 'hidden'}
+      pose={activeMN ? 'visible' : 'hidden'}
     />
   </>
 );
 
 MobileNavigation.propTypes = {
-  active: PropTypes.string.isRequired,
+  activeMN: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
 };
 

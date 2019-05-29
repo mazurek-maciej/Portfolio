@@ -33,4 +33,8 @@ const ImagePlaceholder = ({ image }) => (
   </Bg>
 );
 
+ImagePlaceholder.propTypes = {
+  image: PropTypes.string.isRequired,
+};
+
 export default ImagePlaceholder;

@@ -1,6 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import posed from 'react-pose';
 import maciekLogo from '../../../images/maciek_logo.svg';
+
+const PosedLogo = posed.img({
+  open: {
+    opacity: 1,
+    transition: { duration: 1000 },
+  },
+  closed: {
+    opacity: 0,
+  },
+});
 
 const LogoWrapper = styled.div`
   flex: 1;
@@ -8,14 +19,14 @@ const LogoWrapper = styled.div`
   align-items: center;
 `;
 
-const MLogo = styled.img`
+const MLogo = styled(PosedLogo)`
   height: 36px;
   margin-left: 1rem;
 `;
 
 const HeaderLogo = () => (
   <LogoWrapper>
-    <MLogo src={maciekLogo} />
+    <MLogo pose="open" initialPose="closed" src={maciekLogo} />
   </LogoWrapper>
 );
 
