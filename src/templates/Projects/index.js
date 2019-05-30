@@ -9,10 +9,11 @@ import { NutrikonDescription, TastyDescription } from './ProjectsDescriptions';
 
 const MainContentWraper = styled.section`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   height: 60vh;
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   ${media.phone`

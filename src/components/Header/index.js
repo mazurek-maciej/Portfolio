@@ -4,7 +4,7 @@ import posed from 'react-pose';
 import MobileNavigation from './MobileNavigation';
 import HeaderMenu from './HeaderMenu';
 
-const PosedHeader = posed.div({
+const PosedHeader = posed.header({
   open: {
     staggerChildren: 50,
   },
