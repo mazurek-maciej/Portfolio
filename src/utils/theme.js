@@ -12,5 +12,6 @@ export const theme = {
     h1: '48px',
     h2: '36px',
     h3: '32px',
+    h4: '24px',
   },
 };

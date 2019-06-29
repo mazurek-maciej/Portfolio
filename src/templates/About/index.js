@@ -5,9 +5,8 @@ import { media } from '../../utils/media';
 
 const AboutWraper = styled.section`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  height: 60vh;
+  align-items: center;
+  height: 100vh;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;

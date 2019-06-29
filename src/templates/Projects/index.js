@@ -9,12 +9,9 @@ import { NutrikonDescription, TastyDescription } from './ProjectsDescriptions';
 
 const MainContentWraper = styled.section`
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  height: 60vh;
-  max-width: 900px;
-  width: 100%;
-  margin: 0 auto;
+  height: 100vh;
   position: relative;
   ${media.phone`
     height: 100%;
@@ -23,8 +20,13 @@ const MainContentWraper = styled.section`
     align-self: flex-start;
   }
 `;
-const ProjectsWrapper = styled.div`
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
   width: 100%;
+`;
+const ProjectsWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 2rem;
@@ -32,25 +34,27 @@ const ProjectsWrapper = styled.div`
 
 const Projects = ({ nutrikonImg, tastyImg }) => (
   <MainContentWraper name="projects">
-    <Subheading underline technologies projectsTitle>
-      Projects
-    </Subheading>
-    <ProjectsWrapper>
-      <ProjectTile
-        link="http://nutrikon.pl/"
-        ghLink="https://github.com/mazurek-maciej/Nutrikon-Website"
-        description={NutrikonDescription}
-        heading="Nutrikon"
-        img={nutrikonImg}
-      />
-      <ProjectTile
-        link="https://cranky-raman-166572.netlify.com/"
-        ghLink="https://github.com/mazurek-maciej/Tasty-PO"
-        description={TastyDescription}
-        heading="Tasty"
-        img={tastyImg}
-      />
-    </ProjectsWrapper>
+    <Wrapper>
+      <Subheading underline technologies projectsTitle>
+        Projects
+      </Subheading>
+      <ProjectsWrapper>
+        <ProjectTile
+          link="http://nutrikon.pl/"
+          ghLink="https://github.com/mazurek-maciej/Nutrikon-Website"
+          description={NutrikonDescription}
+          heading="Nutrikon"
+          img={nutrikonImg}
+        />
+        <ProjectTile
+          link="https://cranky-raman-166572.netlify.com/"
+          ghLink="https://github.com/mazurek-maciej/Tasty-PO"
+          description={TastyDescription}
+          heading="Tasty"
+          img={tastyImg}
+        />
+      </ProjectsWrapper>
+    </Wrapper>
   </MainContentWraper>
 );
 

@@ -100,7 +100,7 @@ const HeaderMenu = ({ position, activeMN, onClick }) => {
           </Link>
         </MenuLink>
         <MenuLink position={position} key="3" initialPose="closed" pose="open">
-          <Link to="projects" spy smooth duration={500}>
+          <Link to="projects" spy smooth duration={500} offset={-56}>
             Projects
           </Link>
         </MenuLink>
