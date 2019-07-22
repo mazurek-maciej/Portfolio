@@ -22,6 +22,7 @@ const LogoWrapper = styled.div`
 const MLogo = styled(PosedLogo)`
   height: 36px;
   margin-left: 1rem;
+  opacity: 0;
 `;
 
 const HeaderLogo = () => (

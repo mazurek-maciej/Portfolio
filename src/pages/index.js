@@ -13,7 +13,7 @@ export default class Index extends React.Component {
       <Layout>
         <Main laptopImage={data.bg} />
         <About allContent={data.allContent} />
-        <Projects nutrikonImg={data.nutrikon} tastyImg={data.tasty} />
+        <Projects nutrikonImg={data.nutrikon} tastyImg={data.tasty} hazeImg={data.haze} blogImg={data.blog} />
       </Layout>
     );
   }
@@ -37,6 +37,16 @@ export const query = graphql`
     }
     tasty: imageSharp(original: { src: { regex: "/tasty/" } }) {
       fluid(maxHeight: 200, quality: 100) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+    blog: imageSharp(original: { src: { regex: "/blog/" } }) {
+      fluid(maxHeight: 200, quality: 100) {
+        ...GatsbyImageSharpFluid
+      }
+    }
+    haze: imageSharp(original: { src: { regex: "/haze/" } }) {
+      fluid(maxHeight: 900, quality: 100) {
         ...GatsbyImageSharpFluid
       }
     }

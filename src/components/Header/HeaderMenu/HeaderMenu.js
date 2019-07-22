@@ -8,17 +8,17 @@ import { media } from '../../../utils/media';
 
 const PosedLink = posed.li({
   open: { x: 0, opacity: 1 },
-  closed: { x: -20, opacity: 0 },
+  closed: { x: -20, opacity: 0 }
 });
 
 const PosedMenuLinksWrapper = posed.div({
   open: {
     opacity: 1,
-    staggerChildren: 300,
+    staggerChildren: 300
   },
   closed: {
-    opacity: 0,
-  },
+    opacity: 0
+  }
 });
 
 const MenuLinksWrapper = styled(PosedMenuLinksWrapper)`
@@ -26,6 +26,7 @@ const MenuLinksWrapper = styled(PosedMenuLinksWrapper)`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  opacity: 0;
   ${media.tablet`
     :last-child {
       margin-right: 16px;
@@ -124,7 +125,7 @@ const HeaderMenu = ({ position, activeMN, onClick }) => {
 HeaderMenu.propTypes = {
   onClick: PropTypes.func.isRequired,
   activeMN: PropTypes.bool.isRequired,
-  position: PropTypes.number.isRequired,
+  position: PropTypes.number.isRequired
 };
 
 export default HeaderMenu;

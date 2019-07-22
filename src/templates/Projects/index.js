@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Subheading from '../../components/Tags/Subheading';
 import { media } from '../../utils/media';
 import ProjectTile from './Tile';
-import { NutrikonDescription, TastyDescription } from './ProjectsDescriptions';
+import * as Description from './ProjectsDescriptions';
 
 const MainContentWraper = styled.section`
   display: flex;
@@ -32,7 +32,7 @@ const ProjectsWrapper = styled.div`
   grid-gap: 2rem;
 `;
 
-const Projects = ({ nutrikonImg, tastyImg }) => (
+const Projects = ({ nutrikonImg, tastyImg, hazeImg, blogImg }) => (
   <MainContentWraper name="projects">
     <Wrapper>
       <Subheading underline technologies projectsTitle>
@@ -42,16 +42,28 @@ const Projects = ({ nutrikonImg, tastyImg }) => (
         <ProjectTile
           link="http://nutrikon.pl/"
           ghLink="https://github.com/mazurek-maciej/Nutrikon-Website"
-          description={NutrikonDescription}
+          description={Description.NutrikonDescription}
           heading="Nutrikon"
           img={nutrikonImg}
         />
         <ProjectTile
           link="https://cranky-raman-166572.netlify.com/"
           ghLink="https://github.com/mazurek-maciej/Tasty-PO"
-          description={TastyDescription}
+          description={Description.TastyDescription}
           heading="Tasty"
           img={tastyImg}
+        /><ProjectTile
+          link="https://haze.netlify.com/"
+          ghLink="https://github.com/mazurek-maciej/Haze"
+          description={Description.HazeDescription}
+          heading="Haze"
+          img={hazeImg}
+        /><ProjectTile
+          link="https://minidotmalism.netlify.com/"
+          ghLink="https://github.com/mazurek-maciej/mini.malism"
+          description={Description.BlogDescription}
+          heading="Personal blog"
+          img={blogImg}
         />
       </ProjectsWrapper>
     </Wrapper>
