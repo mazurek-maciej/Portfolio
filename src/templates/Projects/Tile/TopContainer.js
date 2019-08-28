@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Subheading from '../../../components/Tags/Subheading';
 import Description from '../../../components/Tags/Description';
-import GitHubLogo from '../../../images/gh_logo.svg';
+import GitHubLogo from '../../../assets/images/gh_logo.svg';
 
 const TileTopContainer = styled.div`
   flex: 1;

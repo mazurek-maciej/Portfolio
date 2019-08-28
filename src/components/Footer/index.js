@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import posed from 'react-pose';
-import maciekLogo from '../../images/maciek_logo.svg';
+import maciekLogo from '../../assets/images/maciek_logo.svg';
 import { media } from '../../utils/media';
 
 const PosedLinkTo = posed.a({

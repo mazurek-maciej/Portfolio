@@ -9,7 +9,6 @@ Based on React use Firebase as database and authentication system.
 
 export const BlogDescription =`
 My personal blog about programming based on Gatsby.
-Very early version.
 `
 
 export const HazeDescription =`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import posed from 'react-pose';
 import HeroText from './HeroText';
 import ImagePlaceholder from './ImagePlaceholder';
-import LaptopImage from '../../images/Laptopv3.svg';
+import LaptopImage from '../../assets/images/Laptopv3.svg';
 import { media } from '../../utils/media';
 
 const PosedMain = posed.section({

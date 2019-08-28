@@ -32,7 +32,7 @@ const ProjectsWrapper = styled.div`
   grid-gap: 2rem;
 `;
 
-const Projects = ({ nutrikonImg, tastyImg, hazeImg, blogImg }) => (
+const Projects = ({ nutrikonImg, hazeImg, blogImg }) => (
   <MainContentWraper name="projects">
     <Wrapper>
       <Subheading underline technologies projectsTitle>
@@ -47,18 +47,13 @@ const Projects = ({ nutrikonImg, tastyImg, hazeImg, blogImg }) => (
           img={nutrikonImg}
         />
         <ProjectTile
-          link="https://cranky-raman-166572.netlify.com/"
-          ghLink="https://github.com/mazurek-maciej/Tasty-PO"
-          description={Description.TastyDescription}
-          heading="Tasty"
-          img={tastyImg}
-        /><ProjectTile
           link="https://haze.netlify.com/"
           ghLink="https://github.com/mazurek-maciej/Haze"
           description={Description.HazeDescription}
           heading="Haze"
           img={hazeImg}
-        /><ProjectTile
+        />
+        <ProjectTile
           link="https://minidotmalism.netlify.com/"
           ghLink="https://github.com/mazurek-maciej/mini.malism"
           description={Description.BlogDescription}

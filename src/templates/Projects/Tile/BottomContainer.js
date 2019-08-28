@@ -10,6 +10,7 @@ const TileBottomContainer = styled.div`
 const ImgContainer = styled(Img)`
   width: 100%;
   height: 100%;
+  border: none;
   background-color: hsl(210, 0%, 20%);
   ${media.phone`
     height: 160px;
@@ -18,7 +19,7 @@ const ImgContainer = styled(Img)`
 const BottomContainer = ({ link, img }) => (
   <TileBottomContainer>
     <a target="_blank" rel="noopener noreferrer" href={link}>
-      <ImgContainer fluid={img} nutrikon />
+      <ImgContainer fluid={img}/>
     </a>
   </TileBottomContainer>
 );
